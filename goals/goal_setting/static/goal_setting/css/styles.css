@@ -76,6 +76,10 @@
     transition: width 0.5s;  /* Время эффекта */
 }
 
+.link-active {
+    color: red;
+}
+
 .authorization-items {
     display: flex;
     column-gap: 20px;
