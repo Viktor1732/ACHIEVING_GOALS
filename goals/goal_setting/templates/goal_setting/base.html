@@ -22,7 +22,7 @@
                         <ul class="menu-items">
                             <li class="menu-item"><div class="menu-item-logo"></div></li>
                             {% for m in menu_items %}
-                            <li class="menu-item"><a class="menu-item-link" href="#">{{ m.title }}</a></li>
+                                <li class="menu-item"><a class="menu-item-link" href="{% url m.url_name %}">{{ m.title }}</a></li>
                             {% endfor %}
                             <li class="menu-item">
                                 <div class="authorization">
