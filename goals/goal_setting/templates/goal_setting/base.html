@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'goal_setting/css/reset.css' %}">
+  <title>{{ title }}</title>
+</head>
+<body>
+    <header class="site-header">
+        <!-- Nav Desktop -->
+        <div class="container">
+            <nav class="navbar">
+                <a class="navbar-logo" href="#">
+                    <img src="" class="logo-img" alt="logo">
+                </a>
+                <div class="navbar-menu-wrap">
+                    <ul class="menu-header-not-auth">
+                        <li class="menu-header-item">
+                            <a class="menu-nav-link" href="#">Почему мы?</a>
+                        </li>
+                        <li class="menu-header-item">
+                            <a class="menu-nav-link" href="#">База знаний</a>
+                            <ul class="sub-menu">
+                                <li class="menu-header-item">
+                                    <a class="menu-nav-link" href="#">Мои цели</a>
+                                </li>
+                                <li class="menu-header-item">
+                                    <a class="menu-nav-link" href="#">Мои баллы</a>
+                                </li>
+                                <li class="menu-header-item">
+                                    <a class="menu-nav-link" href="#">Таблица лидеров</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-header-item">
+                            <a class="menu-nav-link" href="#">Цели</a>
+                        </li>
+                        <li class="menu-header-item">
+                            <a class="menu-nav-link" href="#">Новости</a>
+                        </li>
+                        <li class="menu-header-item">
+                            <a class="menu-nav-link" href="#">Другое</a>
+                            <ul class="sub-menu">
+                                <li class="menu-header-item">
+                                    <a class="menu-nav-link" href="#">О нас</a>
+                                </li>
+                                <li class="menu-header-item">
+                                    <a class="menu-nav-link" href="#">Политика конфиденциальности</a>
+                                </li>
+                                <li class="menu-header-item">
+                                    <a class="menu-nav-link" href="#">Условие пользования</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="#" class="menu-btn">Вход</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
