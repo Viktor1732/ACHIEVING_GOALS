@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'goal_setting.apps.GoalSettingConfig',
+    'goals_setting.apps.GoalSettingConfig',
 ]
 
 MIDDLEWARE = [
