@@ -45,12 +45,14 @@ body {
 .menu-header-not-auth {
     align-items: center;
     display: flex!important;
+    column-gap: 27px;
+    margin-right: 27px;
 }
 
 .menu-header-item {
-    padding: 12px 0;
     display: list-item;
     position: relative;
+    padding: 2px 0;
 }
 
 .menu-nav-link {
@@ -60,11 +62,33 @@ body {
     font-size: 14px;
     line-height: 23px;
     font-weight: 600;
-    margin-right: 27px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 27px 0;
     cursor: pointer;
     transition: all 0.6s ease;
+}
+
+.menu-nav-link:after {
+	content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #002162;
+    transition: width 0.5s;
+}
+
+.menu-nav-link:hover:after {
+	content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px;
+    background-color: #002162;
+    transition: width 0.5s;
 }
 
 .sub-menu {
@@ -73,7 +97,7 @@ body {
     margin-left: 0;
     box-shadow: 0px 12px 12px rgb(0 0 0 / 14%);
     border-radius: 15px;
-    transform: translateY(-1%);
+    transform: translateY(-5%);
     width: max-content;
     top: 50px;
     position: absolute;
@@ -82,7 +106,9 @@ body {
 }
 
 .sub-menu li {
-        border-bottom: 1px solid black;
+
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 .menu-header-item:hover > ul {
