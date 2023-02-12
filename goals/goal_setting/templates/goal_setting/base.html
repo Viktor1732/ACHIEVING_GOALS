@@ -15,45 +15,48 @@
         <!-- Nav Desktop -->
         <div class="container">
             <nav class="navbar">
-                <a class="navbar-logo" href="#">
+                <a class="navbar-logo" href="{% url 'home' %}">
                     <img src="{% static 'goal_setting/images/logo/logo.png' %}" class="logo-img" alt="logo">
                 </a>
                 <div class="navbar-menu-wrap">
                     <ul class="menu-header-not-auth">
                         <li class="menu-header-item">
-                            <a class="menu-nav-link" href="#">Почему мы?</a>
+                            <a class="menu-nav-link" href="{% url 'why_us' %}">Почему мы?</a>
                         </li>
                         <li class="menu-header-item">
-                            <a class="menu-nav-link" href="#">База знаний</a>
+                            <a class="menu-nav-link" href="{% url 'home' %}">База знаний</a>
                             <ul class="sub-menu">
                                 <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="#">Мои цели</a>
+                                    <a class="menu-nav-link" href="{% url 'goals_info' %}">Мои цели</a>
                                 </li>
                                 <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="#">Мои баллы</a>
-                                </li>
-                                <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="#">Таблица лидеров</a>
+                                    <a class="menu-nav-link" href="{% url 'points_info' %}">Мои баллы</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="menu-header-item">
-                            <a class="menu-nav-link" href="#">Цели</a>
+                            <a class="menu-nav-link" href="{% url 'all_goals' %}">Цели</a>
                         </li>
                         <li class="menu-header-item">
-                            <a class="menu-nav-link" href="#">Новости</a>
+                            <a class="menu-nav-link" href="{% url 'news' %}">Новости</a>
                         </li>
                         <li class="menu-header-item">
                             <a class="menu-nav-link" href="#">Другое</a>
                             <ul class="sub-menu">
                                 <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="#">О нас</a>
+                                    <a class="menu-nav-link" href="{% url 'about' %}">О нас</a>
                                 </li>
                                 <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="#">Политика конфиденциальности</a>
+                                    <a class="menu-nav-link" href="{% url 'contact' %}">Обратная связь</a>
                                 </li>
                                 <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="#">Условие пользования</a>
+                                    <a class="menu-nav-link" href="{% url 'leaders' %}">Таблица лидеров</a>
+                                </li>
+                                <li class="menu-header-item">
+                                    <a class="menu-nav-link" href="{% url 'privacy_policy' %}">Политика конфиденциальности</a>
+                                </li>
+                                <li class="menu-header-item">
+                                    <a class="menu-nav-link" href="{% url 'condition_of_use' %}">Условие пользования</a>
                                 </li>
                             </ul>
                         </li>
