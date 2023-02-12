@@ -1,18 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="{% static 'goal_setting/css/reset.css' %}">
-  <title>{{ title }}</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'goal_setting/css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'goal_setting/css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <title>{{ title }}</title>
 </head>
 <body>
-    <header class="site-header">
+    <header class="header">
         <!-- Nav Desktop -->
         <div class="container">
             <nav class="navbar">
                 <a class="navbar-logo" href="#">
-                    <img src="" class="logo-img" alt="logo">
+                    <img src="{% static 'goal_setting/images/logo/logo.png' %}" class="logo-img" alt="logo">
                 </a>
                 <div class="navbar-menu-wrap">
                     <ul class="menu-header-not-auth">
@@ -54,7 +58,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <a href="#" class="menu-btn">Вход</a>
+                    <a href="#" class="btn-blue btn">Вход</a>
                 </div>
             </nav>
         </div>

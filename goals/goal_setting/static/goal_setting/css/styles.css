@@ -1,0 +1,111 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+}
+
+.header {
+    background: #fff;
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.container {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-logo {
+    display: inline-block;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.logo-img {
+    max-width: 52%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.navbar-menu-wrap {
+    background: transparent;
+    justify-content: flex-end;
+    display: flex!important;
+}
+
+.menu-header-not-auth {
+    align-items: center;
+    display: flex!important;
+}
+
+.menu-header-item {
+    padding: 12px 0;
+    display: list-item;
+    position: relative;
+}
+
+.menu-nav-link {
+    text-align: center;
+    color: #000000 !important;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 600;
+    margin-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.6s ease;
+}
+
+.sub-menu {
+    background: #f9f9f9;
+    padding: 10px 15px 20px;
+    margin-left: 0;
+    box-shadow: 0px 12px 12px rgb(0 0 0 / 14%);
+    border-radius: 15px;
+    transform: translateY(-1%);
+    width: max-content;
+    top: 50px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.sub-menu li {
+        border-bottom: 1px solid black;
+}
+
+.menu-header-item:hover > ul {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+    visibility: visible;
+}
+
+.btn-blue {
+    background: #002162 0% 0% no-repeat padding-box;
+    box-shadow: 3px 6px 9px rgba(0, 54, 161, 0.5);
+}
+
+.btn {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: bold;
+    letter-spacing: 0.64px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 0;
+    z-index: 1;
+    border: 0;
+}
