@@ -1,4 +1,5 @@
 {% load static %}
+{% load goal_tags %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -11,63 +12,76 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <header class="header">
-        <!-- Nav Desktop -->
-        <div class="container">
-            <nav class="navbar">
-                <a class="navbar-logo" href="{% url 'home' %}">
-                    <img src="{% static 'goal_setting/images/logo/logo.png' %}" class="logo-img" alt="logo">
-                </a>
-                <div class="navbar-menu-wrap">
-                    <ul class="menu-header-not-auth">
-                        <li class="menu-header-item">
-                            <a class="menu-nav-link" href="{% url 'why_us' %}">Почему мы?</a>
-                        </li>
-                        <li class="menu-header-item">
-                            <a class="menu-nav-link" href="{% url 'home' %}">База знаний</a>
-                            <ul class="sub-menu">
-                                <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="{% url 'goals_info' %}">Мои цели</a>
-                                </li>
-                                <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="{% url 'points_info' %}">Мои баллы</a>
-                                </li>
-                                <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="{% url 'leaders' %}">Таблица лидеров</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-header-item">
-                            <a class="menu-nav-link" href="{% url 'all_goals' %}">Цели</a>
-                        </li>
-                        <li class="menu-header-item">
-                            <a class="menu-nav-link" href="{% url 'news' %}">Новости</a>
-                        </li>
-                        <li class="menu-header-item">
-                            <a class="menu-nav-link" href="#">Другое</a>
-                            <ul class="sub-menu">
-                                <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="{% url 'about' %}">О нас</a>
-                                </li>
-                                <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="{% url 'contact' %}">Обратная связь</a>
-                                </li>
-                                <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="{% url 'privacy_policy' %}">Политика конфиденциальности</a>
-                                </li>
-                                <li class="menu-header-item">
-                                    <a class="menu-nav-link" href="{% url 'condition_of_use' %}">Условие пользования</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-blue btn">Вход</a>
-                </div>
-            </nav>
-        </div>
-    </header>
+<header class="header">
+    <!-- Nav Desktop -->
+    <div class="container">
+        <nav class="navbar">
+            <a class="navbar-logo" href="{% url 'home' %}">
+                <img src="{% static 'goal_setting/images/logo/logo.png' %}" class="logo-img" alt="logo">
+            </a>
+            <div class="navbar-menu-wrap">
+                {% url 'why_us' as why_us %}
+                {% url 'goals_info' as goals_info %}
+                {% url 'points_info' as points_info %}
+                {% url 'leaders' as leaders %}
+                {% url 'all_goals' as all_goals %}
+                {% url 'goals' as goals %}
+                {% url 'news' as news %}
+                {% url 'about' as about %}
+                {% url 'contact' as contact %}
+                {% url 'privacy_policy' as privacy_policy %}
+                {% url 'condition_of_use' as condition_of_use %}
+                <ul class="menu-header-not-auth">
+                    <li class="menu-header-item">
+                        <a class="{% active request why_us %}" href="{{ why_us }}">Почему мы?</a>
+                    </li>
+                    <li class="menu-header-item">
+                        <a class="menu-nav-link" href="#">База знаний</a>
+                        <ul class="sub-menu">
+                            <li class="menu-header-item">
+                                <a class="{% active request goals_info %}" href="{{ goals_info }}">Мои цели</a>
+                            </li>
+                            <li class="menu-header-item">
+                                <a class="{% active request points_info %}" href="{{ points_info }}">Мои баллы</a>
+                            </li>
+                            <li class="menu-header-item">
+                                <a class="{% active request leaders %}" href="{{ leaders }}">Таблица лидеров</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-header-item">
+                        <a class="{% active request all_goals %}" href="{{ all_goals }}">Цели</a>
+                    </li>
+                    <li class="menu-header-item">
+                        <a class="{% active request news %}" href="{{ news }}">Новости</a>
+                    </li>
+                    <li class="menu-header-item">
+                        <a class="menu-nav-link" href="#">Другое</a>
+                        <ul class="sub-menu">
+                            <li class="menu-header-item">
+                                <a class="{% active request about %}" href="{{ about }}">О нас</a>
+                            </li>
+                            <li class="menu-header-item">
+                                <a class="{% active request contact %}" href="{{ contact }}">Обратная связь</a>
+                            </li>
+                            <li class="menu-header-item">
+                                <a class="{% active request privacy_policy %}" href="{{ privacy_policy }}">Политика
+                                    конфиденциальности</a>
+                            </li>
+                            <li class="menu-header-item">
+                                <a class="{% active request condition_of_use %}" href="{{ condition_of_use }}">Условие
+                                    пользования</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="#" class="btn-blue btn">Вход</a>
+            </div>
+        </nav>
+    </div>
+</header>
 
-    {% block content %}
-    {% endblock content %}
+{% block content %}
+{% endblock content %}
 </body>
 </html>
