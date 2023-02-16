@@ -33,7 +33,7 @@ body {
 }
 
 .logo-img {
-    max-width: 55%;
+    max-width: 62%;
     height: auto;
     vertical-align: middle;
 }
@@ -120,7 +120,6 @@ body {
 }
 
 .sub-menu li {
-
     margin-top: 15px;
     margin-bottom: 10px;
 }
@@ -151,15 +150,156 @@ body {
 }
 
 
+/* about us */
+.about-us {
+    padding: 90px 0;
+}
+
+.about-left {
+    max-width: 50%;
+}
+
+.about-right {
+    max-width: 50%;
+}
+
+.about-content {
+    padding: 30px 30px 30px 0;
+}
+
+.about-title {
+    font-weight: 900;
+    color: #002162;
+    font-size: 48px;
+    line-height: 1.3;
+}
+
+.about-desc {
+    margin-top: 20px;
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.join-btn {
+    margin-top: 60px;
+}
+
+
+/* chess */
+.row-top {
+    display: flex;
+}
+
+.row-bottom {
+    display: flex;
+    margin-top: 100px;
+}
+
+.chess-img-wrap {
+    position: static;
+    height: 470px;
+    padding-top: 30px;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.chess-img-left {
+    position: absolute;
+    width: 48%;
+    left: 0;
+    height: 470px;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: top left !important;
+}
+
+.chess-img-right {
+    position: absolute;
+    right: 0;
+    left: auto;
+    width: 48%;
+    height: 470px;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: top left !important;
+}
+
+.chess-text-wrap {
+    max-width: 50%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chess-text {
+    padding: 50px 0;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+
+/* join-banner */
+.join-banner {
+    margin-top: 100px;
+    background: url('../images/content/bg.jpg');
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    padding: 100px 0 50px;
+    background-attachment: fixed !important;
+    text-align: center;
+}
+
+.join-banner-text {
+    font-size: 37px;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    text-transform: uppercase;
+}
+
+.join-banner-text span {
+    text-transform: none;
+}
+
+
+/* features */
+.features {
+    margin: 150px 0 50px 0;
+}
+
+.features-text-wrap {
+    text-align: center;
+}
+
+
 /* footer */
 .footer {
     padding-top: 60px;
     border-bottom: 1px solid #E2E2E2;
     border-top: 1px solid #E2E2E2;
     background: #002162;
+    position: relative;
+    color: white;
 }
 
-.footer-row {
+.footer:before {
+    background: url('../images/content/footer-bg.png');
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+.footer-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+.row {
     display: flex;
 }
 
@@ -170,7 +310,7 @@ body {
 }
 
 .footer-logo-img {
-    max-width: 70%;
+    max-width: 80%;
     height: auto;
     vertical-align: middle;
     margin-bottom: 10px;
@@ -178,7 +318,6 @@ body {
 
 .logo-text {
     text-align: left;
-    color: #000000 !important;
     font-size: 16px;
     line-height: 23px;
     font-weight: 600;
@@ -187,16 +326,16 @@ body {
 .footer-title {
     color: #F77A21;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 27px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .footer-menu-link {
     margin-bottom: 8px;
     display: block;
-    color: #000000 !important;
-    font-size: 14px;
+    color: #FFFFFF !important;
+    font-size: 16px;
     line-height: 23px;
     font-weight: 600;
     cursor: pointer;
@@ -209,10 +348,10 @@ body {
 }
 
 .footer-social-link {
-    color: #000000 !important;
-    font-size: 14px;
+    color: #FFFFFF !important;
+    font-size: 21px;
     line-height: 23px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .copyright {
@@ -220,9 +359,8 @@ body {
     text-align: center;
 }
 .copyright-text {
-    color: #000000 !important;
-    font-size: 14px;
+    color: #FFFFFF !important;
+    font-size: 16px;
     line-height: 23px;
     font-weight: 600;
 }
-

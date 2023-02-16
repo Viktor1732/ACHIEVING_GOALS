@@ -1,4 +1,5 @@
 {% extends 'goal_setting/base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -8,11 +9,12 @@
         <div class="row">
             <div class="about-left">
                 <div class="about-content">
-                    <h1 class="why-us">Почему мы?</h1>
-                    <p class="about-desc">"Это очень важный для Нас вопрос. Не расценивайте Наш проект, 
-                        как простое интернет приложение. Только время покажет насколько он полезен, оно и расценит. Удачи.</p>
+                    <h1 class="about-title">Почему Мы?</h1>
+                    <p class="about-desc">Это очень важный для Нас вопрос. Не расценивайте Наш проект,
+                        как простое интернет приложение. Только время покажет насколько приложение полезно,
+                        оно и расценит. Удачи.</p>
                     <div class="join-btn">
-                        <a href="" class="btn">Зарегестрироваться</a>
+                        <a href="#" class="btn btn-blue">Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -27,36 +29,50 @@
 
 <!-- chess -->
 <section class="chess">
-    <div class="contanier">
-        <div class="row">
-            <div class="chess-left">
-                <img class="chess-img" src="#">
+    <div class="container">
+        <div class="row-top">
+            <div class="chess-img-wrap">
+                <img class="chess-img-left" src="{% static 'goal_setting/images/content/yoga.jpg' %}">
             </div>
-            <div class="chess-right">
+            <div class="chess-text-wrap">
                 <p class="chess-text">Каждый путь по достижению цели является уникальным. На этом пути вы можете столкнуться с многими проблемами. 
                     Наше приложение помогает систематизировать пути достижения целей. Понять, действительно ли вы движетесь в Своем направлении.
                     Вы можете разбить сложную цель на небольшие этапы. Истории достижений целей других пользователей будут вас мотивировать.</p>
             </div>
         </div>
-        <div class="row">
-            <div class="chess-left">
+        <div class="row-bottom">
+            <div class="chess-text-wrap">
                 <p class="chess-text">Что если пути достижения целей будут ясными и понятными? Если на вашем пути вы получите поддержку от 
                     понимающих Вас людей? Именно по этой причине мы создали это приложение. В нашем приложении вы можете получать поддержку и советы других пользователей.</p>
             </div>
-            <div class="chess-right">
-                <img class="chess-img" src="">
+            <div class="chess-img-wrap">
+                <img class="chess-img-right" src="{% static 'goal_setting/images/content/surfer.jpg' %}">
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- features -->
+<section class="features">
+    <div class="container">
+        <div class="features-text-wrap">
+            <h2 class="about-title">Приложение для постановки<br>и достижения целей</h2>
+            <p class="about-desc">Вы можете создавать неограниченное количество целей. Разбить большую цель
+            на небольшие этапы, завершив которые, вы ее достигните. По своему желанию Вы можете поделиться своей целью с
+            другими пользователями смогут увидеть её и вдохновиться.<br>Выполненные цели отправляются в архив, разбитый
+            на временные интервалы. Всегда есть возможность отменить выполнение цели или увидеть свои достижения.
+            </p>
         </div>
     </div>
 </section>
 
 <!-- join-banner -->
 <section class="join-banner">
-    <div class="contanier">
+    <div class="container">
         <h2 class="join-banner-text">Присоеденяйтесь сегодня<br><span>Ставьте цели и делитесь историями успеха!</span></h2>
     </div>
     <div class="join-btn">
-        <a href="" class="btn">Зарегестрироваться</a>
+        <a href="#" class="btn btn-blue">Присоединиться</a>
     </div>
 </section>
 
