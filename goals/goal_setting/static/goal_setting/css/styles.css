@@ -153,6 +153,32 @@ body {
 /* about us */
 .about-us {
     padding: 90px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-us:before {
+    position: absolute;
+    content: "";
+    background: url('../images/effects/circle.png');
+    height: 370px;
+    width: 366px;
+    left: -130px;
+    bottom: 50px;
+    background-size: 100% 100%;
+}
+
+.about-us:after {
+    content: "";
+    position: absolute;
+    background: url('../images/effects/ellipse.png');
+    height: 800px;
+    width: 790px;
+    top: -275px;
+    right: -250px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: -1;
 }
 
 .about-left {
@@ -187,6 +213,32 @@ body {
 
 
 /* chess */
+.chess {
+    position: relative;
+}
+
+.chess:before {
+    position: absolute;
+    content: "";
+    background: url(../images/effects/circle.png);
+    height: 370px;
+    width: 366px;
+    right: -245px;
+    top: 10%;
+    background-size: 100% 100%;
+}
+
+.chess:after {
+    position: absolute;
+    content: "";
+    background: url(../images/effects/circle.png);
+    height: 370px;
+    width: 366px;
+    left: -245px;
+    bottom: 0px;
+    background-size: 100% 100%;
+}
+
 .row-top {
     display: flex;
 }
@@ -236,6 +288,7 @@ body {
     padding: 50px 0;
     font-size: 18px;
     line-height: 1.5;
+    font-weight: 500;
 }
 
 
@@ -265,7 +318,7 @@ body {
 
 /* features */
 .features {
-    margin: 150px 0 50px 0;
+    margin: 180px 0 70px 0;
 }
 
 .features-text-wrap {
@@ -318,7 +371,7 @@ body {
 
 .logo-text {
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 23px;
     font-weight: 600;
 }

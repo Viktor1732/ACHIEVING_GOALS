@@ -1,5 +1,83 @@
 {% extends 'goal_setting/base.html' %}
+{% load static %}
 
 {% block content %}
-<h1>Почему Мы?</h1>
+
+<!-- about us -->
+<section class="about-us">
+    <div class="container">
+        <div class="row">
+            <div class="about-left">
+                <div class="about-content">
+                    <h1 class="about-title">Почему Мы?</h1>
+                    <p class="about-desc">Мы постарались сделать максимально простой для использования сайт
+                        с понятным интерфейсом. Наше сайт помогает систематизировать и максимально упростить работу
+                        с целями. Истории достижений будут мотивировать Вас на еще большие достижения. Удачи!</p>
+                    <div class="join-btn">
+                        <a href="#" class="btn btn-blue">Зарегистрироваться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="about-right">
+                <div class="about-img-wrap">
+                    <img class='about-img' src="#" alt="image-form">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- chess -->
+<section class="chess">
+    <div class="container">
+        <div class="row-top">
+            <div class="chess-img-wrap">
+                <img class="chess-img-left" src="{% static 'goal_setting/images/content/yoga.jpg' %}">
+            </div>
+            <div class="chess-text-wrap">
+                <p class="chess-text">В тот момент когда вы осознаете свою цель, Вы начинаете видеть пути к
+                    достижению этой цели и стараетесь выбрать лучший. Путь каждого человека уникален. На пути Вы можете
+                    столкнуться с многими проблемами. Некоторые цели могут потерять свой приоритет перед повседневными
+                    обязанностями и все тем, что может приподнести нам жизнь.
+                </p>
+            </div>
+        </div>
+        <div class="row-bottom">
+            <div class="chess-text-wrap">
+                <p class="chess-text">Что если пути достижения целей будут ясными и понятными? Если на вашем пути
+                    вы получите поддержку от понимающих Вас людей? Именно по этой причине мы создали этот сайт.
+                    Здесь вы можете получать поддержку и советы по достижению целей.</p>
+            </div>
+            <div class="chess-img-wrap">
+                <img class="chess-img-right" src="{% static 'goal_setting/images/content/surfer.jpg' %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- features -->
+<section class="features">
+    <div class="container">
+        <div class="features-text-wrap">
+            <h2 class="about-title">Приложение для постановки<br>и достижения целей</h2>
+            <p class="about-desc">На этом сайте вы найдете систему поддержки, которая поможет визуализировать Ваши
+                цели и выстроить шаги для её достижения. Вы можете создавать неограниценное количество целей. Также
+                есть возможность поделиться своей целью, если захотите, с другими пользователями и видеть цели других
+                пользователей. Выполненные цели отправляются в архив, разделенный на временные интервалы. Всегда есть
+                возможность отменить выполнение цели.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- join-banner -->
+<section class="join-banner">
+    <div class="container">
+        <h2 class="join-banner-text">Присоеденяйтесь сегодня<br><span>Ставьте цели и делитесь историями успеха!</span></h2>
+    </div>
+    <div class="join-btn">
+        <a href="#" class="btn btn-blue">Присоединиться</a>
+    </div>
+</section>
+
 {% endblock content %}

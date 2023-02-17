@@ -6,7 +6,7 @@ def index(request):
 
 
 def why_us(request):
-    return render(request, 'goal_setting/why_us.html', context={'title': 'Почему Мы?'})
+    return render(request, 'goal_setting/why_us.html', context={'title': 'Sprout | Почему Мы?'})
 
 
 def goals_info(request):
