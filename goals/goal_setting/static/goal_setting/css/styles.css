@@ -318,7 +318,7 @@ body {
 
 .logo-text {
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 23px;
     font-weight: 600;
 }
@@ -326,7 +326,7 @@ body {
 .footer-title {
     color: #F77A21;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 27px;
     margin-bottom: 16px;
 }
@@ -335,7 +335,7 @@ body {
     margin-bottom: 8px;
     display: block;
     color: #FFFFFF !important;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 23px;
     font-weight: 600;
     cursor: pointer;
@@ -347,11 +347,42 @@ body {
     justify-content: space-between;
 }
 
+.footer-social-item {
+    display: flex;
+}
+
 .footer-social-link {
+    display: flex;
     color: #FFFFFF !important;
-    font-size: 21px;
+    font-size: 18px;
     line-height: 23px;
     font-weight: 700;
+    align-items: center;
+    margin-left: 7px;
+}
+
+.footer-social-item div{
+    width: 35px;
+    height: 35px;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: top left !important;
+}
+
+.img-telegram {
+    background: url('../images/icons/tel.png');
+}
+
+.img-vkontakte {
+    background: url('../images/icons/vk.png');
+}
+
+.img-youtube {
+    background: url('../images/icons/yt.png');
+}
+
+.img-instagram {
+    background: url('../images/icons/inst.png');
 }
 
 .copyright {
@@ -360,7 +391,7 @@ body {
 }
 .copyright-text {
     color: #FFFFFF !important;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 23px;
     font-weight: 600;
 }
