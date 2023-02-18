@@ -54,25 +54,25 @@
         <!-- new-goal -->
         <div class="row-content">
             <div class="new-goal-card">
-            	<div class="goal-new-title-wrap">
-            		 <h4 class="goal-new-title">Создать новую цель!</h4>
-            	</div>
+                <div class="goal-new-title-wrap">
+                    <h4 class="goal-new-title">Создать новую цель!</h4>
+                </div>
                 <div class="create-goal-card">
                     <div class="create-goal-form">
-                        <form id="create-goal-frm" method="post">
+                        <form id="create-goal-frm" method="post" class="create-goal-frm">
                             <div class="form-group">
-                                <label>Название цели:</label>
+                                <label class="form-label">Название цели:</label>
                                 <input type="text" name="goal-title" id="goal-title" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <label>Описание цели:</label>
-                                <textarea name="goal-desc" placeholder="Опишите свою цель..." id="id_goal_desc" class="form-area-control"></textarea>
+                            <div class="form-textarea">
+                                <label class="form-label">Описание цели:</label>
+                                <textarea name="goal-desc" id="id_goal_desc" class="form-textarea-control" maxlength="350"></textarea>
                             </div>
                             <div class="row">
                                 <div class="form-group">
-                                    <label>Категория:</label>
+                                    <label class="form-label">Категория:</label>
                                     <select name="category" id="category" class="form-control">
-                                        <option value="">Выбирите категорию</option>
+                                        <option value="">Выберите категорию</option>
                                         <option value="2">Творчество и хобби</option>
                                         <option value="3">Дом</option>
                                         <option value="4">Здоровье</option>
@@ -87,35 +87,38 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Дата завершения цели:</label>
-                                    <input type="date" placeholder="yyyy-mm-dd" min="2023-02-18"  name="target" id="target" class="form-control">
+                                    <label class="form-label">Дата завершения цели:</label>
+                                    <input type="date" placeholder="yyyy-mm-dd" min="2023-02-18" name="target"
+                                           id="target" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Загрузить изображение:</label>
-                                <input type="file" name="goal-photo" class="form-control" accept="image/*" required="" id="id_photo">
+                                <label class="form-label">Загрузить изображение:</label>
+                                <input type="file" name="goal-photo" class="form-control" accept="image/*" required=""
+                                       id="id_photo">
                             </div>
-                            <div class="form-group">
-                                <label>Приватность:</label>
+                            <div class="form-group checkblock">
+                                <label class="form-label">Приватность:</label>
                                 <div class="radio-btns">
                                     <div class="radio-block">
-                                        <input name="privacy-choice" type="radio" id="cb-privacy" class="privacy-choice">
-                                        <label for="cb-privacy">Приватная</label>
+                                        <input name="privacy-choice" type="radio" id="cb-privacy"
+                                               class="privacy-choice">
+                                        <label for="cb-privacy" class="form-label label-gray">Приватная</label>
                                     </div>
                                     <div class="radio-block">
                                         <input name="privacy-choice" type="radio" id="cb-public" class="privacy-choice">
-                                        <label for="cb-public">Публичная</label>
+                                        <label for="cb-public" class="form-label label-gray">Публичная</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-create-btn">
                                 <button type="submit" class="btn btn-blue">Создать цель</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-		</div>
+        </div>
 
     </div>
 </section>
