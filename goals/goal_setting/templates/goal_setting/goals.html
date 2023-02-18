@@ -1,5 +1,55 @@
 {% extends 'goal_setting/base.html' %}
+{% load static %}
 
 {% block content %}
-<h1>Цели всех пользователей</h1>
+
+<!-- goals -->
+<section class="goals">
+    <div class="container">
+        <div class="row-content">
+
+            <!-- goal-card -->
+            <div class="goal-card-wrap">
+                <div class="goal-card">
+                    <div class="goal-card-header">
+                        <div class="goal-marking">
+                            <div class="goal-wrap-img">
+                                <img src="{% static 'goal_setting/images/icons/goal.png' %}" class="goal-img">
+                            </div>
+                            <h6 class="goals-marking-title">Цели</h6>
+                        </div>
+                        <a class="goal-more" href="#">Показать больше ></a>
+                    </div>
+                    <div class="goal-body">
+                        <ul class="goal-list">
+                            <li class="goals-not-name">У вас пока нет целей!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- archive-card -->
+            <div class="archive-card-wrap">
+                <div class="archive-card">
+                    <div class="archive-card-header">
+                        <div class="archive-marking">
+                            <div class="archive-wrap-img">
+                                <img src="{% static 'goal_setting/images/icons/archive.png' %}" class="archive-img">
+                            </div>
+                            <h6 class="archive-marking-title">Архив</h6>
+                        </div>
+                        <a class="archive-more" href="#">Показать больше></a>
+                    </div>
+                    <div class="archive-body">
+                        <ul class="archive-list">
+                            <li class="archive-not-name">Архив пока пуст!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 {% endblock content %}
