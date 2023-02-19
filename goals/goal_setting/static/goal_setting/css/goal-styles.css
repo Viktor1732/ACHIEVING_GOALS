@@ -5,7 +5,7 @@
 
 /* goals */
 .goals {
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 
 .row-title {
@@ -16,7 +16,7 @@
 }
 
 .goals-title {
-    font-size: 32px;
+    font-size: 42px;
     line-height: 40px;
     font-weight: 900;
     color: #002162;
@@ -194,7 +194,7 @@
 }
 
 .goal-new-title {
-    font-size: 32px;
+    font-size: 28px;
     line-height: 40px;
     font-weight: 900;
     color: #002162;
