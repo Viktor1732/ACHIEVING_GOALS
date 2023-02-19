@@ -207,6 +207,40 @@ body {
     font-weight: 500;
 }
 
+.about-right {
+    flex: 0 0 50%;
+    max-width: 50%;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.about-img-wrap {
+    position: relative;
+}
+
+.about-img-wrap:before {
+    position: absolute;
+    content: "";
+    background: url(../images/effects/gray-square.jpg);
+    height: 320px;
+    width: 320px;
+    right: -30px;
+    top: -50px;
+    border-radius: 14px;
+}
+
+.about-img {
+    width: 100%;
+    height: auto;
+    box-shadow: 8px 8px 11px rgb(0 0 0 / 16%);
+    border-radius: 14px;
+    border: solid 2px rgb(0 0 0 / 12%);
+    position: relative;
+    z-index: 1;
+}
+
+
 .join-btn {
     margin-top: 60px;
 }
@@ -215,6 +249,7 @@ body {
 /* chess */
 .chess {
     position: relative;
+    overflow: hidden;
 }
 
 .chess:before {
@@ -250,7 +285,7 @@ body {
 
 .chess-img-wrap {
     position: static;
-    height: 470px;
+    height: 500px;
     padding-top: 30px;
     flex: 0 0 50%;
     max-width: 50%;
@@ -259,22 +294,25 @@ body {
 .chess-img-left {
     position: absolute;
     width: 48%;
-    left: 0;
+    right: auto;
+    left: 10px;
     height: 470px;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: top left !important;
+    border-radius: 14px;
 }
 
 .chess-img-right {
     position: absolute;
-    right: 0;
+    right: 10px;
     left: auto;
     width: 48%;
     height: 470px;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: top left !important;
+    border-radius: 14px;
 }
 
 .chess-text-wrap {
@@ -420,6 +458,7 @@ body {
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: top left !important;
+    border-radius: 9px;
 }
 
 .img-telegram {
@@ -442,6 +481,7 @@ body {
     margin: 70px 0 40px 0;
     text-align: center;
 }
+
 .copyright-text {
     color: #FFFFFF !important;
     font-size: 14px;
