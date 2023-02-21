@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+
+from .utils import *
 
 
 def index(request):
@@ -25,8 +28,18 @@ def show_leaders(request):
     return render(request, 'goal_setting/leader_board.html', context={'title': 'Наши лидеры'})
 
 
-def show_news(request):
-    return render(request, 'goal_setting/news.html', context={'title': 'Новости'})
+class ShowNews(DataMixin, ListView):
+    model = News
+    template_name = 'goal_setting/news.html'
+    context_object_name = 'news_list'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Новости успехов!')
+        return dict(list(context.items()) + list(c_def.items()))
+
+    def get_queryset(self):
+        return News.objects.filter(is_published=True)
 
 
 def about_us(request):
