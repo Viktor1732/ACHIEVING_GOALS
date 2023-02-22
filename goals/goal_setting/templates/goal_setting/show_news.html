@@ -1,0 +1,22 @@
+{% extends 'goal_setting/base.html' %}
+
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <div class="news-header">
+            <h1 class="news-title">{{ news_list.title }}</h1>
+        </div>
+        <div class="news-block">
+            <div class="blog-article-image" style="background: url({{ news_list.image.url }});
+				background-position: center; background-size: 100%;">
+            </div>
+            <div class="news-content">
+                <p class="news-block-desc">{{ news_list.content }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block join-banner %}
+{%  endblock join-banner %}

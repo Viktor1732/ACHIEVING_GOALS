@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from .utils import *
 
@@ -28,7 +28,7 @@ def show_leaders(request):
     return render(request, 'goal_setting/leader_board.html', context={'title': 'Наши лидеры'})
 
 
-class ShowNews(DataMixin, ListView):
+class ListNews(DataMixin, ListView):
     model = News
     template_name = 'goal_setting/news.html'
     context_object_name = 'news_list'
@@ -36,6 +36,22 @@ class ShowNews(DataMixin, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Новости успехов!')
+        return dict(list(context.items()) + list(c_def.items()))
+
+    def get_queryset(self):
+        return News.objects.filter(is_published=True)
+
+
+class ShowNews(DataMixin, DetailView):
+    model = News
+    template_name = 'goal_setting/show_news.html'
+    context_object_name = 'news_list'
+    slug_url_kwarg = 'news_slug'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c = News.objects.get(slug=self.kwargs['news_slug'])
+        c_def = self.get_user_context(title=str(c.title))
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):
