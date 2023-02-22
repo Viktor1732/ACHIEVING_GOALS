@@ -78,6 +78,11 @@ a {
     display: flex;
     flex-wrap: wrap;
     text-align: left!important;
+    line-height: 1.5;
+}
+
+.news-content p {
+    margin-bottom: 10px;
 }
 
 .news-block-title {
