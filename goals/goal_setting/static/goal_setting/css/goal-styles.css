@@ -319,3 +319,14 @@
 .form-control-hidden {
     display: none;
 }
+
+.news-title.title-standard {
+    font-size: 42px!important;
+}
+
+.news-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+    margin-top: -20px;
+}

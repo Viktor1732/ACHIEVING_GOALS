@@ -16,12 +16,23 @@ def goals_info(request):
     return render(request, 'goal_setting/goals_info.html', context={'title': 'Информация о целях'})
 
 
+class CreateGoals(DataMixin, ListView):
+    model = News
+    template_name = 'goal_setting/goals.html'
+    context_object_name = 'news_list'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c = News.objects.all()[:3]
+        c_def = self.get_user_context(title='Sprout | Работа с целями', news_list=c)
+        return dict(list(context.items()) + list(c_def.items()))
+
+    def get_queryset(self):
+        return News.objects.filter(is_published=True)
+
+
 def points_info(request):
     return render(request, 'goal_setting/points_info.html', context={'title': 'Информация о баллах'})
-
-
-def show_all_goals(request):
-    return render(request, 'goal_setting/goals.html', context={'title': 'Последние опубликованные цели'})
 
 
 def show_leaders(request):
