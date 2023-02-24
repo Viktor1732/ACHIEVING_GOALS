@@ -27,7 +27,7 @@
                 {% url 'goals_info' as goals_info %}
                 {% url 'points_info' as points_info %}
                 {% url 'leaders' as leaders %}
-                {% url 'all_goals' as all_goals %}
+                {% url 'goals' as goals %}
                 {% url 'goals' as goals %}
                 {% url 'news' as news %}
                 {% url 'about' as about %}
@@ -53,7 +53,7 @@
                         </ul>
                     </li>
                     <li class="menu-header-item">
-                        <a class="{% active request all_goals %}" href="{{ all_goals }}">Цели</a>
+                        <a class="{% active request goals %}" href="{{ goals }}">Цели</a>
                     </li>
                     <li class="menu-header-item">
                         <a class="{% active request news %}" href="{{ news }}">Истории успеха</a>

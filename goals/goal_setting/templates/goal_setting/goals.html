@@ -59,45 +59,30 @@
                 </div>
                 <div class="create-goal-card">
                     <div class="create-goal-form">
-                        <form id="create-goal-frm" method="post" class="create-goal-frm">
+                        <form action="{% url 'goals' %  }" method="post" enctype="multipart/form-data" id="create-goal-frm" class="create-goal-frm">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label class="form-label">Название цели:</label>
-                                <input type="text" name="goal-title" id="goal-title" class="form-control">
+                                {{ form.title }}
                             </div>
                             <div class="form-textarea">
                                 <label class="form-label">Описание цели:</label>
-                                <textarea name="goal-desc" id="id_goal_desc" class="form-textarea-control" maxlength="350"></textarea>
+                                {{ form.description }}
                             </div>
                             <div class="row">
                                 <div class="form-group">
                                     <label class="form-label">Категория:</label>
-                                    <select name="category" id="category" class="form-control cursor-pointer">
-                                        <option value="">Выберите категорию</option>
-                                        <option value="2">Творчество и хобби</option>
-                                        <option value="3">Дом</option>
-                                        <option value="4">Здоровье</option>
-                                        <option value="5">Семья</option>
-                                        <option value="6">Фриланс</option>
-                                        <option value="7">Образование</option>
-                                        <option value="8">Социальные навыки</option>
-                                        <option value="9">Карьера</option>
-                                        <option value="10">Бизнес</option>
-                                        <option value="11">Языки</option>
-                                        <option value="12">Другое</option>
-                                    </select>
+                                    {{ form.category }}
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Дата завершения цели:</label>
-                                    <input type="date" placeholder="yyyy-mm-dd" min="2023-02-18" name="target"
-                                           id="target" class="form-control cursor-pointer">
+                                    {{ form.time_of_end }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Загрузить изображение:</label>
                                 <a id="upload-btn"><span id="upload-text" class="form-control cursor-pointer">Файл не выбран</span></a>
-                                <input type="file" name="goal-photo" class="form-control-hidden" accept="image/*" required=""
-                                       id="upload-file">
+                                {{ form.image }}
                             </div>
                             <div class="form-group checkblock">
                                 <label class="form-label">Приватность:</label>

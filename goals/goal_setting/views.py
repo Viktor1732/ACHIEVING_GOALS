@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView
 
+from .forms import CreateGoalsForm
 from .utils import *
 
 
@@ -16,12 +18,12 @@ def goals_info(request):
     return render(request, 'goal_setting/goals_info.html', context={'title': 'Информация о целях'})
 
 
-class CreateGoals(DataMixin, ListView):
-    model = News
+class CreateGoals(DataMixin, CreateView):
+    form_class = CreateGoalsForm
     template_name = 'goal_setting/goals.html'
-    context_object_name = 'news_list'
+    success_url = reverse_lazy('goals')
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         c = News.objects.all()[:3]
         c_def = self.get_user_context(title='Sprout | Работа с целями', news_list=c)
