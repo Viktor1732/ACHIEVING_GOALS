@@ -18,6 +18,11 @@ class Goals(models.Model):
     def get_absolute_url(self):
         return reverse('goal', kwargs={'goal': self.title})
 
+    class Meta:
+        verbose_name = 'Цель'
+        verbose_name_plural = 'Цели'
+        ordering = ['time_of_create']
+
 
 class News(models.Model):
     title = models.CharField(max_length=150, verbose_name='Заголовок')

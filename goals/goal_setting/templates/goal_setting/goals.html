@@ -24,7 +24,13 @@
                     </div>
                     <div class="goal-body">
                         <ul class="goal-list">
-                            <li class="goal-not-name">У вас пока нет целей!</li>
+                            {% if list_goals_act %}
+                                {% for goal in list_goals_act %}
+                                    <li class="goal-name">{{ goal.title }}</li>
+                                {% endfor %}
+                            {% else %}
+                                <li class="goal-name">У вас пока нет целей!</li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
@@ -44,7 +50,13 @@
                     </div>
                     <div class="archive-body">
                         <ul class="archive-list">
-                            <li class="archive-not-name">Архив пока пуст!</li>
+                            {% if list_goals_arc %}
+                                {% for goal in list_goals_arc %}
+                                    <li class="archive-name">{{ goal.title }}</li>
+                                {% endfor %}
+                            {% else %}
+                                <li class="archive-name">Архив пока пуст!</li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>

@@ -25,8 +25,23 @@ class CreateGoals(DataMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        c = News.objects.all()[:3]
-        c_def = self.get_user_context(title='Sprout | Работа с целями', news_list=c)
+        news = News.objects.all()[:3]
+        list_goals = Goals.objects.all()
+
+        def count_goals_act():
+            if list_goals.filter(is_completed=False).count() > 0:
+                return list_goals.filter(is_completed=False).order_by('-time_of_create')[:5]
+            else:
+                return None
+
+        def count_goals_arc():
+            if list_goals.filter(is_completed=True).count() > 0:
+                return list_goals.filter(is_completed=True).order_by('-time_of_create')[:5]
+            else:
+                return None
+
+        c_def = self.get_user_context(title='Sprout | Работа с целями', news_list=news, list_goals_act=count_goals_act(),
+                                      list_goals_arc=count_goals_arc())
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):

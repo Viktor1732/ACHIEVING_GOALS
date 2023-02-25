@@ -10,4 +10,12 @@ class NewsAdmin(admin.ModelAdmin):
     list_filter = ('is_published', 'time_create')
 
 
+class GoalsAdmin(admin.ModelAdmin):
+    list_display = ['title', 'category', 'time_of_create', 'time_of_end', 'privacy', 'is_completed']
+    list_display_links = ('title',)
+    search_fields = ('title', 'content')
+    list_filter = ('is_completed', 'time_of_create')
+
+
 admin.site.register(News, NewsAdmin)
+admin.site.register(Goals, GoalsAdmin)

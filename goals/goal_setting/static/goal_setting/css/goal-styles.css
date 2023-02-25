@@ -95,15 +95,21 @@
     font-weight: 600;
 }
 
-.goal-list {
-    list-style-type: none !important;
-    padding-inline-start: 0px;
-    list-style: disc;
+.goal-body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
-.goal-not-name {
-    font-size: 17px;
-    font-weight: 500;
+.goal-list {
+    margin-top: 10px;
+}
+
+.goal-name {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #002162;
 }
 
 
@@ -171,9 +177,21 @@
     font-weight: 600;
 }
 
-.archive-not-name {
-    font-size: 17px;
-    font-weight: 500;
+.archive-body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.archive-list {
+    margin-top: 10px;
+}
+
+.archive-name {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #002162;
 }
 
 
@@ -285,7 +303,6 @@
     background-clip: padding-box;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
 
 .radio-btns {
     display: flex;
