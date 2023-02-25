@@ -5,32 +5,33 @@ from .models import *
 
 class CreateGoalsForm(forms.ModelForm):
     CHOICES_CATEGORY = (
-        ('1', 'Категория не выбрана'),
-        ('2', 'Творчество и хобби'),
-        ('3', 'Дом'),
-        ('4', 'Здоровье'),
-        ('5', 'Семья'),
-        ('6', 'Языки'),
-        ('7', 'Образование'),
-        ('8', 'Социальные навыки'),
-        ('9', 'Карьера'),
-        ('10', 'Бизнес'),
-        ('11', 'Другое'),
+        ('', 'Категория не выбрана'),
+        (2, 'Творчество и хобби'),
+        (3, 'Дом'),
+        (4, 'Здоровье'),
+        (5, 'Семья'),
+        (6, 'Языки'),
+        (7, 'Образование'),
+        (8, 'Социальные навыки'),
+        (9, 'Карьера'),
+        (10, 'Бизнес'),
+        (11, 'Другое'),
     )
 
-    CHOICES_PRIVACY = [
-        ('1', 'Приватная'),
-        ('2', 'Публичная'),
-    ]
+    CHOICES_PRIVACY = (
+        (1, 'Приватная'),
+        (2, 'Публичная'),
+    )
 
     category = forms.CharField(
         widget=forms.Select(choices=CHOICES_CATEGORY, attrs={
             'name': "category", 'id': "category", 'class': "form-control cursor-pointer"
         }))
 
-    privacy = forms.ChoiceField(
-        widget=forms.RadioSelect(choices=CHOICES_PRIVACY, )
-    )
+    privacy = forms.CharField(
+        widget=forms.Select(choices=CHOICES_PRIVACY, attrs={
+            'name': "privacy", 'id': "privacy", 'class': "form-control cursor-pointer"
+        }))
 
     class Meta:
         model = Goals

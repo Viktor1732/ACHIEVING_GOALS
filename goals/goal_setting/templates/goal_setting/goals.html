@@ -59,7 +59,7 @@
                 </div>
                 <div class="create-goal-card">
                     <div class="create-goal-form">
-                        <form action="{% url 'goals' %  }" method="post" enctype="multipart/form-data" id="create-goal-frm" class="create-goal-frm">
+                        <form action="" method="post" enctype="multipart/form-data" id="create-goal-frm" class="create-goal-frm">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label class="form-label">Название цели:</label>
@@ -79,23 +79,15 @@
                                     {{ form.time_of_end }}
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Загрузить изображение:</label>
-                                <a id="upload-btn"><span id="upload-text" class="form-control cursor-pointer">Файл не выбран</span></a>
-                                {{ form.image }}
-                            </div>
-                            <div class="form-group checkblock">
-                                <label class="form-label">Приватность:</label>
-                                <div class="radio-btns">
-                                    <div class="radio-block">
-                                        <input name="privacy-choice" type="radio" id="cb-privacy"
-                                               class="privacy-choice">
-                                        <label for="cb-privacy" class="form-label label-gray">Приватная</label>
-                                    </div>
-                                    <div class="radio-block">
-                                        <input name="privacy-choice" type="radio" id="cb-public" class="privacy-choice">
-                                        <label for="cb-public" class="form-label label-gray">Публичная</label>
-                                    </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="form-label">Загрузить изображение:</label>
+                                    <a id="upload-btn"><span id="upload-text" class="form-control cursor-pointer">Файл не выбран</span></a>
+                                    {{ form.image }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Приватность цели:</label>
+                                    {{ form.privacy }}
                                 </div>
                             </div>
                             <div class="form-create-btn">

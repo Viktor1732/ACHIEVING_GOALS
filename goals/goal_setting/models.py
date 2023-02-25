@@ -2,29 +2,14 @@ from django.db import models
 from django.urls import reverse
 
 
-class GoalsCategory(models.Model):
-    category = models.CharField(max_length=50, verbose_name='Категория')
-
-    def __str__(self):
-        return self.category
-
-
-class GoalsPrivacy(models.Model):
-    privacy = models.CharField(max_length=12, verbose_name='Приватность')
-
-    def __str__(self):
-        return self.privacy
-
-
 class Goals(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название цели')
     description = models.TextField(blank=True, verbose_name='Описание цели')
-    category = models.ForeignKey(GoalsCategory, on_delete=models.PROTECT)
+    category = models.CharField(max_length=50, verbose_name='Категория')
     time_of_create = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     time_of_end = models.DateTimeField(verbose_name='Дата завершения')
     image = models.ImageField(upload_to='photos/goals/%Y/%m/%d/', verbose_name='Изображение', null=True)
-    privacy = models.ForeignKey(GoalsPrivacy, on_delete=models.PROTECT)
-    is_published = models.BooleanField(default=False, verbose_name='Публикация')
+    privacy = models.CharField(max_length=12, verbose_name='Приватность')
     is_completed = models.BooleanField(default=False, verbose_name='Завершенность')
 
     def __str__(self):
