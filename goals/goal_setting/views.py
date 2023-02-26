@@ -48,6 +48,17 @@ class CreateGoals(DataMixin, CreateView):
         return News.objects.filter(is_published=True)
 
 
+class GoalsMenu(DataMixin, ListView):
+    model = Goals
+    template_name = 'goal_setting/goals-menu.html'
+    context_object_name = 'goals_list'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Sprout | Мои цели')
+        return dict(list(context.items()) + list(c_def.items()))
+
+
 def points_info(request):
     return render(request, 'goal_setting/points_info.html', context={'title': 'Информация о баллах'})
 

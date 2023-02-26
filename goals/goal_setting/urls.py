@@ -9,6 +9,7 @@ urlpatterns = [
     path('points_how_it_work/', points_info, name='points_info'),
     path('leaders/', show_leaders, name='leaders'),
     path('goals/', CreateGoals.as_view(), name='goals'),
+    path('goals/my_goals/', GoalsMenu.as_view(), name='my_goals'),
     path('news/', ListNews.as_view(), name='news'),
     path('news/<slug:news_slug>/', ShowNews.as_view(), name='news'),
     path('about/', about_us, name='about'),

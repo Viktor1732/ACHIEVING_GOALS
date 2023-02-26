@@ -1,0 +1,240 @@
+{% extends 'goal_setting/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- goals-menu -->
+<section class="my-goals">
+    <div class="container">
+        <div class="goal-card-header ">
+            <div class="goal-marking">
+                <div class="goal-wrap-img">
+                    <img src="{% static 'goal_setting/images/icons/goal.png' %}" class="goal-img">
+                </div>
+                <div class="row-title">
+                    <h1 class="goals-title">Мои цели:</h1>
+                </div>
+            </div>
+            <a href="#" class="btn btn-blue">Создать новую цель</a>
+        </div>
+
+        <div class="goal-list-wrap">
+            <!-- Краткосрочные -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Краткосрочные цели (до 3 месяцев)
+                </div>
+                <ul class="goal-list-content">
+                    <li class="goal-list-item">
+                        <a href="#" class="goal-content-link">
+                            Купить кухонный гарнитур
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="goal-list-item">
+                        <a href="#" class="goal-content-link">
+                            Выучить 500 английских слов
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Краткосрочные 3-12 месяцев -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Краткосрочные цели (от 3 до 12 месяцев)
+                </div>
+                <ul class="goal-list-content">
+                    <li class="goal-list-item">
+                        <a href="#" class="goal-content-link">
+                            Построить самолет
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="goal-list-item">
+                        <a href="#" class="goal-content-link">
+                            Кругосветное путешествие
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Среднесрочные -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Среднесрочные цели (от 1 до 3 лет)
+                </div>
+                <ul class="goal-list-content">
+                    <li class="goal-list-item">
+                        <a href="#" class="goal-content-link">
+                            Купить остров в Тихом океане
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="goal-list-item">
+                        <a href="#" class="goal-content-link">
+                            Стать президентом США
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Краткосрочные -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Долгосрочные цели (от 3 лет)
+                </div>
+                <ul class="goal-list-content">
+                    <li class="goal-list-item">
+                        <a href="#" class="goal-content-link">
+                            Дожить здоровым до 80 лет
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="goal-list-item">
+                        <a href="#" class="goal-content-link">
+                            Купить РЖД
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block join-banner %}
+{% endblock join-banner %}
