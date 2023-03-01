@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
@@ -40,7 +42,8 @@ class CreateGoals(DataMixin, CreateView):
             else:
                 return None
 
-        c_def = self.get_user_context(title='Sprout | Работа с целями', news_list=news, list_goals_act=count_goals_act(),
+        c_def = self.get_user_context(title='Sprout | Работа с целями', news_list=news,
+                                      list_goals_act=count_goals_act(),
                                       list_goals_arc=count_goals_arc())
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -55,7 +58,32 @@ class GoalsMenu(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Sprout | Мои цели')
+
+        def get_period_goals():
+            list_goals_less_90_days = []
+            list_goals_from_3_to_12_months = []
+            list_goals_from_1_to_3_years = []
+            list_goals_more_3_years = []
+
+            for goal in Goals.objects.all():
+                period = goal.time_of_end - goal.time_of_create
+                if period < datetime.timedelta(days=90):
+                    list_goals_less_90_days.append(goal.title)
+                elif datetime.timedelta(days=90) < period < datetime.timedelta(days=365):
+                    list_goals_from_3_to_12_months.append(goal.title)
+                elif datetime.timedelta(days=365) < period < datetime.timedelta(days=1095):
+                    list_goals_from_1_to_3_years.append(goal.title)
+                else:
+                    list_goals_more_3_years.append(goal.title)
+
+            return {
+                'less_90_days': list_goals_less_90_days,
+                'from_3_to_12_months': list_goals_from_3_to_12_months,
+                'from_1_to_3_years': list_goals_from_1_to_3_years,
+                'more_3_years': list_goals_more_3_years
+            }
+
+        c_def = self.get_user_context(title='Sprout | Мои цели', period=get_period_goals())
         return dict(list(context.items()) + list(c_def.items()))
 
 
