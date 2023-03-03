@@ -11,7 +11,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 
 class GoalsAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'time_of_create', 'time_of_end', 'privacy', 'is_completed']
+    list_display = ['title', 'slug', 'category', 'time_of_create', 'time_of_end', 'privacy', 'is_completed']
     list_display_links = ('title',)
     search_fields = ('title', 'content')
     list_filter = ('is_completed', 'time_of_create')

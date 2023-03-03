@@ -87,6 +87,18 @@ class GoalsMenu(DataMixin, ListView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
+class ShowGoal(DataMixin, DetailView):
+    model = Goals
+    template_name = 'goal_setting/show_goal.html'
+    context_object_name = 'goals_list'
+    slug_url_kwarg = 'goal_slag'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title=context['goal'])
+        return dict(list(context.items()) + list(c_def.items()))
+
+
 def points_info(request):
     return render(request, 'goal_setting/points_info.html', context={'title': 'Информация о баллах'})
 

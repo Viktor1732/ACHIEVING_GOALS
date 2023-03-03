@@ -1,9 +1,11 @@
 from django.db import models
 from django.urls import reverse
+from django_extensions.db.fields import AutoSlugField
 
 
 class Goals(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название цели')
+    slug = AutoSlugField('slug', max_length=50, unique=True, populate_from=('title',))
     description = models.TextField(blank=True, verbose_name='Описание цели')
     category = models.CharField(max_length=50, verbose_name='Категория')
     time_of_create = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
@@ -16,7 +18,7 @@ class Goals(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('goal', kwargs={'goal': self.title})
+        return reverse('goal', kwargs={'goal_slug': self.slug})
 
     class Meta:
         verbose_name = 'Цель'
