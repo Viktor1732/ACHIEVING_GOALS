@@ -1,0 +1,59 @@
+{% extends 'goal_setting/base.html' %}
+
+{% block content %}
+<!-- update goal -->
+<section class="goals">
+    <div class="container">
+        <div class="row-content">
+            <div class="new-goal-card">
+                <div class="goal-new-title-wrap">
+                    <h4 class="goal-new-title">Изменить цель</h4>
+                </div>
+                <div class="create-goal-card">
+                    <div class="create-goal-form">
+                        <form action="" method="post" enctype="multipart/form-data" id="create-goal-frm" class="create-goal-frm">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form-label">Название цели:</label>
+                                {{ form.title }}
+                            </div>
+                            <div class="form-textarea">
+                                <label class="form-label">Описание цели:</label>
+                                {{ form.description }}
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="form-label">Категория:</label>
+                                    {{ form.category }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Дата завершения цели:</label>
+                                    {{ form.time_of_end }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="form-label">Загрузить изображение:</label>
+                                    <a id="upload-btn"><span id="upload-text" class="form-control cursor-pointer">Файл не выбран</span></a>
+                                    {{ form.image }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Приватность цели:</label>
+                                    {{ form.privacy }}
+                                </div>
+                            </div>
+                            <div class="form-create-btn">
+                                <button type="submit" class="btn btn-blue">Изменить цель</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block join-banner %}
+{% endblock join-banner %}

@@ -2,9 +2,9 @@ import datetime
 
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
-from .forms import CreateGoalsForm
+from .forms import CreateGoalsForm, UpdateGoalForm
 from .utils import *
 
 
@@ -104,6 +104,20 @@ def delete_goal(request, goal_slug=None):
     goal.delete()
     redirect('my_goals')
     return render(request, 'goal_setting/goals-menu.html')
+
+
+class GoalUpdate(DataMixin, UpdateView):
+    model = Goals
+    form_class = CreateGoalsForm
+    template_name = 'goal_setting/update_goal.html'
+    context_object_name = 'form'
+    slug_url_kwarg = 'goal_slug'
+    success_url = reverse_lazy('my_goals')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Sprout | Изменить цель')
+        return dict(list(context.items()) + list(c_def.items()))
 
 
 def points_info(request):
