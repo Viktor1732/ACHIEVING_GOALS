@@ -433,3 +433,89 @@
     max-width: 25px;
 }
 
+
+/* show_goal */
+.goal-desc-header {
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.goal-title {
+    flex: 80% 0 0;
+    justify-content: left;
+    display: flex;
+}
+
+.goal-desc-icons {
+    flex: 20% 0 0;
+    justify-content: center;
+    display: flex;
+}
+
+.goal-desc-content {
+    display: flex;
+    margin-bottom: 70px;
+}
+
+.wrap-goal-left {
+    flex: 35% 0 0;
+}
+
+.block-cat {
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #7D7D7D;
+    margin-bottom: 5px;
+}
+
+.wrap-goal-desc-img {
+    position: relative;
+    overflow:hidden;
+    width: 100%;
+    height: 450px;
+    background: #F8F8F8 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 11px rgb(0 0 0 / 36%);
+    border-radius: 12px;
+}
+
+.goal-desc-img {
+    position: absolute;
+    top:100%;
+    left:100%;
+    transform:translate(-100%,-100%);
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.wrap-goal-right {
+    flex: 65% 0 0;
+    margin: 70px;
+}
+
+.goal-right-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goal-desc-text {
+    font-size: 19px;
+    line-height: 23px;
+    font-weight: 700;
+    width: 80%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.goal-desc-btn {
+    margin-top: 5px;
+    height: 20%;
+    display: flex;
+    align-items: center;
+}

@@ -29,7 +29,7 @@
                     {% for per in period.less_90_days %}
                     {% if goal.title == per %}
                     <li class="goal-list-item">
-                        <a href="#" class="goal-content-link">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
                             {{ goal.title }}
                         </a>
                         <ul class="goal-list-icons">
@@ -66,7 +66,7 @@
                     {% for per in period.from_3_to_12_months %}
                     {% if goal.title == per %}
                     <li class="goal-list-item">
-                        <a href="#" class="goal-content-link">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
                             {{ goal.title }}
                         </a>
                         <ul class="goal-list-icons">
@@ -103,7 +103,7 @@
                     {% for per in period.from_1_to_3_years %}
                     {% if goal.title == per %}
                     <li class="goal-list-item">
-                        <a href="#" class="goal-content-link">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
                             {{ goal.title }}
                         </a>
                         <ul class="goal-list-icons">
@@ -140,7 +140,7 @@
                     {% for per in period.more_3_years %}
                     {% if goal.title == per %}
                     <li class="goal-list-item">
-                        <a href="#" class="goal-content-link">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
                             {{ goal.title }}
                         </a>
                         <ul class="goal-list-icons">
