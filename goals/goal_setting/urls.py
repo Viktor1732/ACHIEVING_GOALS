@@ -10,7 +10,12 @@ urlpatterns = [
     path('leaders/', show_leaders, name='leaders'),
     path('goals/', CreateGoals.as_view(), name='goals'),
     path('goals/my_goals/', GoalsMenu.as_view(), name='my_goals'),
-    path('goals/my_goals/<slug:goal_slug>/', ShowGoal.as_view(), name='goal'),
+    path('goals/my_goals/<goal_slug>/', ShowGoal.as_view(), name='goal'),
+
+    # url(r'^delete/(?P<part_id>[0-9]+)/$', view.function, name='delete_view'),
+    path(r'^goals/my_goals/(?P<goal_slug>\d+)$', delete_goal, name='delete_goal'),
+    # path(r'^delete/(?P<goal_slug>+)/$', delete_goal, name='delete_goal'),
+
     path('news/', ListNews.as_view(), name='news'),
     path('news/<slug:news_slug>/', ShowNews.as_view(), name='news'),
     path('about/', about_us, name='about'),

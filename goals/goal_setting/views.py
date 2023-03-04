@@ -1,6 +1,6 @@
 import datetime
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 
@@ -97,6 +97,13 @@ class ShowGoal(DataMixin, DetailView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Sprout | goal: ' + str(context['goal']))
         return dict(list(context.items()) + list(c_def.items()))
+
+
+def delete_goal(request, goal_slug=None):
+    goal = Goals.objects.get(slug=goal_slug)
+    goal.delete()
+    redirect('my_goals')
+    return render(request, 'goal_setting/goals-menu.html')
 
 
 def points_info(request):
