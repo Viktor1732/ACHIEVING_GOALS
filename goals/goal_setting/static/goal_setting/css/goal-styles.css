@@ -493,7 +493,7 @@
 
 .wrap-goal-right {
     flex: 65% 0 0;
-    margin: 70px;
+    padding: 70px;
 }
 
 .goal-right-container {
@@ -514,7 +514,7 @@
 }
 
 .goal-desc-btn {
-    margin-top: 5px;
+    margin-top: 20px;
     height: 20%;
     display: flex;
     align-items: center;

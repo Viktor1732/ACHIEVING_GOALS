@@ -87,7 +87,6 @@ class GoalsMenu(DataMixin, ListView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
-
 class ShowGoal(DataMixin, DetailView):
     model = Goals
     template_name = 'goal_setting/show_goal.html'
@@ -98,9 +97,6 @@ class ShowGoal(DataMixin, DetailView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Sprout | goal: ' + str(context['goal']))
         return dict(list(context.items()) + list(c_def.items()))
-
-
-
 
 
 def points_info(request):

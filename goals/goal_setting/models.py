@@ -6,10 +6,10 @@ from django_extensions.db.fields import AutoSlugField
 class Goals(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название цели')
     slug = AutoSlugField('slug', max_length=50, unique=True, populate_from=('title',))
-    description = models.TextField(blank=True, verbose_name='Описание цели')
+    description = models.TextField(blank=True, verbose_name='Описание цели', max_length=650)
     category = models.CharField(max_length=50, verbose_name='Категория')
-    time_of_create = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
-    time_of_end = models.DateTimeField(verbose_name='Дата завершения')
+    time_of_create = models.DateField(auto_now_add=True, verbose_name='Дата создания')
+    time_of_end = models.DateField(verbose_name='Дата завершения')
     image = models.ImageField(upload_to='photos/goals/%Y/%m/%d/', verbose_name='Изображение', null=True)
     privacy = models.CharField(max_length=12, verbose_name='Приватность')
     is_completed = models.BooleanField(default=False, verbose_name='Завершенность')
