@@ -12,7 +12,11 @@ urlpatterns = [
     path('goals/', GoalsMenu.as_view(), name='goals'),
     path('goals/show_goal/<goal_slug>/', ShowGoal.as_view(), name='goal'),
     path(r'^goals/show_goal/(?P<goal_slug>\d+)$', delete_goal, name='delete_goal'),
+
+    path(r'goals/show_goal/<goal_slug>', completing_goal, name='completing_goal'),
+
     path('goals/update/<slug:goal_slug>/', GoalUpdate.as_view(), name='update_goal'),
+    path('archive/', ArchiveMenu.as_view(), name='archive'),
     path('news/', ListNews.as_view(), name='news'),
     path('news/<slug:news_slug>/', ShowNews.as_view(), name='news'),
     path('about/', about_us, name='about'),

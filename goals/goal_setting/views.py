@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
-from .forms import CreateGoalsForm, UpdateGoalForm
+from .forms import CreateGoalsForm
 from .utils import *
 
 
@@ -46,7 +46,7 @@ class GoalsMenu(DataMixin, ListView):
             list_goals_from_1_to_3_years = []
             list_goals_more_3_years = []
 
-            for goal in Goals.objects.all():
+            for goal in Goals.objects.filter(is_completed=False):
                 period = goal.time_of_end - goal.time_of_create
                 if period < datetime.timedelta(days=90):
                     list_goals_less_90_days.append(goal.title)
@@ -85,6 +85,13 @@ def delete_goal(request, goal_slug=None):
     return redirect('goals')
 
 
+def completing_goal(request, goal_slug=None):
+    goal = Goals.objects.get(slug=goal_slug)
+    goal.is_completed = True
+    goal.save()
+    return redirect('goals')
+
+
 class GoalUpdate(DataMixin, UpdateView):
     model = Goals
     form_class = CreateGoalsForm
@@ -96,6 +103,43 @@ class GoalUpdate(DataMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Sprout | Изменить цель')
+        return dict(list(context.items()) + list(c_def.items()))
+
+
+class ArchiveMenu(DataMixin, ListView):
+    model = Goals
+    template_name = 'goal_setting/show-archive.html'
+    context_object_name = 'goals_list'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        news = News.objects.all()[:6]
+
+        def get_period_goals():
+            list_goals_less_90_days = []
+            list_goals_from_3_to_12_months = []
+            list_goals_from_1_to_3_years = []
+            list_goals_more_3_years = []
+
+            for goal in Goals.objects.filter(is_completed=True):
+                period = goal.time_of_end - goal.time_of_create
+                if period < datetime.timedelta(days=90):
+                    list_goals_less_90_days.append(goal.title)
+                elif datetime.timedelta(days=90) < period < datetime.timedelta(days=365):
+                    list_goals_from_3_to_12_months.append(goal.title)
+                elif datetime.timedelta(days=365) < period < datetime.timedelta(days=1095):
+                    list_goals_from_1_to_3_years.append(goal.title)
+                else:
+                    list_goals_more_3_years.append(goal.title)
+
+            return {
+                'less_90_days': list_goals_less_90_days,
+                'from_3_to_12_months': list_goals_from_3_to_12_months,
+                'from_1_to_3_years': list_goals_from_1_to_3_years,
+                'more_3_years': list_goals_more_3_years
+            }
+
+        c_def = self.get_user_context(title='Sprout | Архив', period=get_period_goals(), news_list=news)
         return dict(list(context.items()) + list(c_def.items()))
 
 

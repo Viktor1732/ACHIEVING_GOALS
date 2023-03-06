@@ -1,0 +1,191 @@
+{% extends 'goal_setting/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- goals-menu -->
+<section class="my-goals">
+    <div class="container">
+        <div class="goal-card-header ">
+            <div class="goal-marking">
+                <div class="goal-wrap-img">
+                    <img src="{% static 'goal_setting/images/icons/archive.png' %}" class="goal-img">
+                </div>
+                <div class="row-title">
+                    <h1 class="goals-title">Архив:</h1>
+                </div>
+            </div>
+            <a href="{% url 'goals' %}" class="btn btn-blue">К списку целей</a>
+        </div>
+
+        <div class="goal-list-wrap">
+            <!-- Краткосрочные -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Краткосрочные цели (до 3 месяцев)
+                </div>
+                <ul class="goal-list-content">
+                    {% for goal in goals_list %}
+                    {% for per in period.less_90_days %}
+                    {% if goal.title == per %}
+                    <li class="goal-list-item">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
+                            {{ goal.title }}
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/cancel.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Краткосрочные 3-12 месяцев -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Краткосрочные цели (от 3 до 12 месяцев)
+                </div>
+                <ul class="goal-list-content">
+                    {% for goal in goals_list %}
+                    {% for per in period.from_3_to_12_months %}
+                    {% if goal.title == per %}
+                    <li class="goal-list-item">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
+                            {{ goal.title }}
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/cancel.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Среднесрочные -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Среднесрочные (от 1 до 3 лет)
+                </div>
+                <ul class="goal-list-content">
+                    {% for goal in goals_list %}
+                    {% for per in period.from_1_to_3_years %}
+                    {% if goal.title == per %}
+                    <li class="goal-list-item">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
+                            {{ goal.title }}
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/cancel.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Долгосрочные -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Долгосрочные цели (от 3 лет)
+                </div>
+                <ul class="goal-list-content">
+                    {% for goal in goals_list %}
+                    {% for per in period.more_3_years %}
+                    {% if goal.title == per %}
+                    <li class="goal-list-item">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
+                            {{ goal.title }}
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/cancel.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- news -->
+<section class="blog-page">
+    <div class="container">
+        <div class="row">
+            <div class="news-header-wrap">
+                <div class="news-header">
+                    <h1 class="news-title title-standard">Читай истории успеха</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for n in news_list %}
+            <div class="news-block-wrap">
+                <div class="news-block">
+                    <a href="{{ n.get_absolute_url }}">
+                        <div class="blog-article-image" style="background: url({{ n.image.url }});
+						background-position: center; background-size: 100%;"></div>
+                    </a>
+                    <div class="news-content">
+                        <a href="{{ n.get_absolute_url }}"><h4 class="news-block-title">{{ n.title }}</h4></a>
+                        <a href="{{ n.get_absolute_url }}">
+                            <p class="news-block-desc">{{ n.content|truncatewords:12 }}</p>
+                        </a>
+                        <p class="block-date">{{ n.time_create }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="news-btn">
+            <a href="{% url 'news' %}" class="btn btn-blue">Показать больше</a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block join-banner %}
+{% endblock join-banner %}

@@ -22,7 +22,7 @@
                         </a>
                     </li>
                     <li class="goal-list-icon">
-                        <a href="#" class="goal-icon-link">
+                        <a href="{% url 'completing_goal' goal_slug=goal.slug %}" class="goal-icon-link">
                             <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
                         </a>
                     </li>
