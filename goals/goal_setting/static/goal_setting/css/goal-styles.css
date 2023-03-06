@@ -11,8 +11,6 @@
 .row-title {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 35px;
 }
 
 .goals-title {
@@ -56,7 +54,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
 }
 
 .goal-marking {
@@ -355,7 +352,8 @@
 }
 
 .goal-card-header {
-    margin-top: 20px;
+    margin-top: 60px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: space-around;
     align-items: center;

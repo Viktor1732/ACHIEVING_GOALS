@@ -22,42 +22,23 @@ def goals_info(request):
 
 class CreateGoals(DataMixin, CreateView):
     form_class = CreateGoalsForm
-    template_name = 'goal_setting/goals.html'
+    template_name = 'goal_setting/create_goal.html'
     success_url = reverse_lazy('goals')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        news = News.objects.all()[:3]
-        list_goals = Goals.objects.all()
-
-        def count_goals_act():
-            if list_goals.filter(is_completed=False).count() > 0:
-                return list_goals.filter(is_completed=False).order_by('-time_of_create')[:5]
-            else:
-                return None
-
-        def count_goals_arc():
-            if list_goals.filter(is_completed=True).count() > 0:
-                return list_goals.filter(is_completed=True).order_by('-time_of_create')[:5]
-            else:
-                return None
-
-        c_def = self.get_user_context(title='Sprout | Работа с целями', news_list=news,
-                                      list_goals_act=count_goals_act(),
-                                      list_goals_arc=count_goals_arc())
+        c_def = self.get_user_context(title='Sprout | Работа с целями')
         return dict(list(context.items()) + list(c_def.items()))
-
-    def get_queryset(self):
-        return News.objects.filter(is_published=True)
 
 
 class GoalsMenu(DataMixin, ListView):
     model = Goals
-    template_name = 'goal_setting/goals-menu.html'
+    template_name = 'goal_setting/goals.html'
     context_object_name = 'goals_list'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        news = News.objects.all()[:6]
 
         def get_period_goals():
             list_goals_less_90_days = []
@@ -83,7 +64,7 @@ class GoalsMenu(DataMixin, ListView):
                 'more_3_years': list_goals_more_3_years
             }
 
-        c_def = self.get_user_context(title='Sprout | Мои цели', period=get_period_goals())
+        c_def = self.get_user_context(title='Sprout | Мои цели', period=get_period_goals(), news_list=news)
         return dict(list(context.items()) + list(c_def.items()))
 
 
@@ -100,10 +81,8 @@ class ShowGoal(DataMixin, DetailView):
 
 
 def delete_goal(request, goal_slug=None):
-    goal = Goals.objects.get(slug=goal_slug)
-    goal.delete()
-    redirect('my_goals')
-    return render(request, 'goal_setting/goals-menu.html')
+    Goals.objects.get(slug=goal_slug).delete()
+    return redirect('goals')
 
 
 class GoalUpdate(DataMixin, UpdateView):
@@ -112,7 +91,7 @@ class GoalUpdate(DataMixin, UpdateView):
     template_name = 'goal_setting/update_goal.html'
     context_object_name = 'form'
     slug_url_kwarg = 'goal_slug'
-    success_url = reverse_lazy('my_goals')
+    success_url = reverse_lazy('goals')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

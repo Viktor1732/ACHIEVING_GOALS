@@ -3,114 +3,170 @@
 
 {% block content %}
 
-<!-- goals -->
-<section class="goals">
+<!-- goals-menu -->
+<section class="my-goals">
     <div class="container">
-        <div class="row-title">
-            <h1 class="goals-title">Работа с целями:</h1>
+        <div class="goal-card-header ">
+            <div class="goal-marking">
+                <div class="goal-wrap-img">
+                    <img src="{% static 'goal_setting/images/icons/goal.png' %}" class="goal-img">
+                </div>
+                <div class="row-title">
+                    <h1 class="goals-title">Мои цели:</h1>
+                </div>
+            </div>
+            <a href="{% url 'create_goal' %}" class="btn btn-blue">Создать новую цель</a>
         </div>
-        <div class="row-content">
-            <!-- goal-card -->
-            <div class="goal-card-wrap">
-                <div class="goal-card">
-                    <div class="goal-card-header">
-                        <div class="goal-marking">
-                            <div class="goal-wrap-img">
-                                <img src="{% static 'goal_setting/images/icons/goal.png' %}" class="goal-img">
-                            </div>
-                            <h6 class="goals-marking-title">Цели</h6>
-                        </div>
-                        <a class="goal-more" href="{% url 'my_goals' %}">Показать больше ></a>
-                    </div>
-                    <div class="goal-body">
-                        <ul class="goal-list">
-                            {% if list_goals_act %}
-                                {% for goal in list_goals_act %}
-                                    <li class="goal-name">{{ goal.title }}</li>
-                                {% endfor %}
-                            {% else %}
-                                <li class="goal-name">У вас пока нет целей!</li>
-                            {% endif %}
+
+        <div class="goal-list-wrap">
+            <!-- Краткосрочные -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Краткосрочные цели (до 3 месяцев)
+                </div>
+                <ul class="goal-list-content">
+                    {% for goal in goals_list %}
+                    {% for per in period.less_90_days %}
+                    {% if goal.title == per %}
+                    <li class="goal-list-item">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
+                            {{ goal.title }}
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
                         </ul>
-                    </div>
-                </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
             </div>
 
-            <!-- archive-card -->
-            <div class="archive-card-wrap">
-                <div class="archive-card">
-                    <div class="archive-card-header">
-                        <div class="archive-marking">
-                            <div class="archive-wrap-img">
-                                <img src="{% static 'goal_setting/images/icons/archive.png' %}" class="archive-img">
-                            </div>
-                            <h6 class="archive-marking-title">Архив</h6>
-                        </div>
-                        <a class="archive-more" href="#">Показать больше></a>
-                    </div>
-                    <div class="archive-body">
-                        <ul class="archive-list">
-                            {% if list_goals_arc %}
-                                {% for goal in list_goals_arc %}
-                                    <li class="archive-name">{{ goal.title }}</li>
-                                {% endfor %}
-                            {% else %}
-                                <li class="archive-name">Архив пока пуст!</li>
-                            {% endif %}
+            <!-- Краткосрочные 3-12 месяцев -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Краткосрочные цели (от 3 до 12 месяцев)
+                </div>
+                <ul class="goal-list-content">
+                    {% for goal in goals_list %}
+                    {% for per in period.from_3_to_12_months %}
+                    {% if goal.title == per %}
+                    <li class="goal-list-item">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
+                            {{ goal.title }}
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
                         </ul>
-                    </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Среднесрочные -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Среднесрочные (от 1 до 3 лет)
                 </div>
+                <ul class="goal-list-content">
+                    {% for goal in goals_list %}
+                    {% for per in period.from_1_to_3_years %}
+                    {% if goal.title == per %}
+                    <li class="goal-list-item">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
+                            {{ goal.title }}
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Долгосрочные -->
+            <div class="goal-list-card">
+                <div class="goal-list-header">
+                    Долгосрочные цели (от 3 лет)
+                </div>
+                <ul class="goal-list-content">
+                    {% for goal in goals_list %}
+                    {% for per in period.more_3_years %}
+                    {% if goal.title == per %}
+                    <li class="goal-list-item">
+                        <a href="{{ goal.get_absolute_url }}" class="goal-content-link">
+                            {{ goal.title }}
+                        </a>
+                        <ul class="goal-list-icons">
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/delete.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/edit.png' %}">
+                                </a>
+                            </li>
+                            <li class="goal-list-icon">
+                                <a href="#" class="goal-icon-link">
+                                    <img class="icon-link-img" src="{% static 'goal_setting/images/icons/done.png' %}">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
             </div>
         </div>
-
-        <!-- new-goal -->
-        <div class="row-content">
-            <div class="new-goal-card">
-                <div class="goal-new-title-wrap">
-                    <h4 class="goal-new-title">Создать новую цель!</h4>
-                </div>
-                <div class="create-goal-card">
-                    <div class="create-goal-form">
-                        <form action="" method="post" enctype="multipart/form-data" id="create-goal-frm" class="create-goal-frm">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label class="form-label">Название цели:</label>
-                                {{ form.title }}
-                            </div>
-                            <div class="form-textarea">
-                                <label class="form-label">Описание цели:</label>
-                                {{ form.description }}
-                            </div>
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="form-label">Категория:</label>
-                                    {{ form.category }}
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Дата завершения цели:</label>
-                                    {{ form.time_of_end }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="form-label">Загрузить изображение:</label>
-                                    <a id="upload-btn"><span id="upload-text" class="form-control cursor-pointer">Файл не выбран</span></a>
-                                    {{ form.image }}
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Приватность цели:</label>
-                                    {{ form.privacy }}
-                                </div>
-                            </div>
-                            <div class="form-create-btn">
-                                <button type="submit" class="btn btn-blue">Создать цель</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
 
@@ -120,7 +176,7 @@
         <div class="row">
             <div class="news-header-wrap">
                 <div class="news-header">
-                    <h1 class="news-title title-standard">Читай истории успешных людей</h1>
+                    <h1 class="news-title title-standard">Читай истории успеха</h1>
                 </div>
             </div>
         </div>
@@ -149,7 +205,7 @@
     </div>
 </section>
 
+{% endblock content %}
+
 {% block join-banner %}
 {% endblock join-banner %}
-
-{% endblock content %}
