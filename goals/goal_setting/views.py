@@ -143,6 +143,13 @@ class ArchiveMenu(DataMixin, ListView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
+def cancel_archive(request, goal_slug):
+    goal = Goals.objects.get(slug=goal_slug)
+    goal.is_completed = False
+    goal.save()
+    return redirect('archive')
+
+
 def points_info(request):
     return render(request, 'goal_setting/points_info.html', context={'title': 'Информация о баллах'})
 
