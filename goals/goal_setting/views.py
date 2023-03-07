@@ -155,6 +155,17 @@ def delete_goal_archive(request, goal_slug=None):
     return redirect('archive')
 
 
+class PublicGoals(DataMixin, ListView):
+    model = Goals
+    template_name = 'goal_setting/public_goals.html'
+    context_object_name = 'list_goals'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Sprout | Публичные цели всех пользователей')
+        return dict(list(context.items()) + list(c_def.items()))
+
+
 def points_info(request):
     return render(request, 'goal_setting/points_info.html', context={'title': 'Информация о баллах'})
 

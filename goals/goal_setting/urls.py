@@ -17,6 +17,7 @@ urlpatterns = [
     path('archive/', ArchiveMenu.as_view(), name='archive'),
     path('archive/<goal_slug>', cancel_archive, name='cancel_archive'),
     path(r'^archive/(?P<goal_slug>\d+)$', delete_goal_archive, name='delete_goal_archive'),
+    path('public_goals', PublicGoals.as_view(), name='public_goals'),
     path('news/', ListNews.as_view(), name='news'),
     path('news/<slug:news_slug>/', ShowNews.as_view(), name='news'),
     path('about/', about_us, name='about'),
