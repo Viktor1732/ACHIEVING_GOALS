@@ -150,6 +150,11 @@ def cancel_archive(request, goal_slug):
     return redirect('archive')
 
 
+def delete_goal_archive(request, goal_slug=None):
+    Goals.objects.get(slug=goal_slug).delete()
+    return redirect('archive')
+
+
 def points_info(request):
     return render(request, 'goal_setting/points_info.html', context={'title': 'Информация о баллах'})
 
