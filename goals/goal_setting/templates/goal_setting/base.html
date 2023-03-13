@@ -23,7 +23,6 @@
                 <img src="{% static 'goal_setting/images/logo/logo.png' %}" class="logo-img" alt="logo">
             </a>
             <div class="navbar-menu-wrap">
-                {% url 'why_us' as why_us %}
                 {% url 'goals_info' as goals_info %}
                 {% url 'points_info' as points_info %}
                 {% url 'leaders' as leaders %}
@@ -36,9 +35,6 @@
                 {% url 'privacy_policy' as privacy_policy %}
                 {% url 'condition_of_use' as condition_of_use %}
                 <ul class="menu-header-not-auth">
-                    <li class="menu-header-item">
-                        <a class="{% active request why_us %}" href="{{ why_us }}">Почему мы?</a>
-                    </li>
                     <li class="menu-header-item">
                         <a class="menu-nav-link" href="#">База знаний</a>
                         <ul class="sub-menu">

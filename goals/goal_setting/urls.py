@@ -4,7 +4,6 @@ from goal_setting.views import *
 
 urlpatterns = [
     path('', index, name='home'),
-    path('why_us/', why_us, name='why_us'),
     path('goals_how_it_work/', goals_info, name='goals_info'),
     path('points_how_it_work/', points_info, name='points_info'),
     path('leaders/', show_leaders, name='leaders'),

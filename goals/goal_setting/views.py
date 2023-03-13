@@ -10,11 +10,9 @@ from .utils import *
 
 
 def index(request):
-    return render(request, 'goal_setting/index.html', context={'title': 'Лучшее приложение для достижения целей!'})
-
-
-def why_us(request):
-    return render(request, 'goal_setting/why_us.html', context={'title': 'Sprout | Почему Мы?'})
+    return render(request, 'goal_setting/index.html', context={
+        'title': 'Sprout | Лучшее приложение для достижения целей!'
+    })
 
 
 def goals_info(request):
@@ -183,7 +181,7 @@ class ListNews(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Новости успехов!')
+        c_def = self.get_user_context(title='Sprout | Новости успехов!')
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):
