@@ -1,5 +1,15 @@
 {% extends 'goal_setting/base.html' %}
+{% load static %}
 
 {% block content %}
-<h1>Информация о постановке целей</h1>
+<!-- goals-info -->
+<section class="goals-info">
+    <div class="container">
+        <div class="features-text-wrap">
+            <h2 class="about-title">Как ставить цели</h2>
+            {{ g_info|linebreaks }}
+        </div>
+    </div>
+</section>
+
 {% endblock content %}

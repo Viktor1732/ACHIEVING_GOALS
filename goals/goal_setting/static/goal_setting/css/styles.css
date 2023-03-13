@@ -296,24 +296,22 @@ body {
     position: absolute;
     width: 48%;
     right: auto;
-    left: 10px;
+    left: 0;
     height: 470px;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: top left !important;
-    border-radius: 14px;
 }
 
 .chess-img-right {
     position: absolute;
-    right: 10px;
+    right: 0;
     left: auto;
     width: 48%;
     height: 470px;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: top left !important;
-    border-radius: 14px;
 }
 
 .chess-text-wrap {
@@ -333,7 +331,7 @@ body {
 
 /* join-banner */
 .join-banner {
-    margin-top: 100px;
+    margin-top: 70px;
     background: url('../images/content/bg.jpg');
     background-repeat: no-repeat!important;
     background-size: cover!important;
@@ -361,7 +359,21 @@ body {
 }
 
 .features-text-wrap {
+    text-align: justify;
+}
+
+.features-text-wrap h2 {
     text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.features-text-wrap p {
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.3;
+    text-indent: 30px;
 }
 
 

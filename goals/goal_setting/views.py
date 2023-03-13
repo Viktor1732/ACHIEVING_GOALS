@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .forms import CreateGoalsForm
+from .texts import g_info
 from .utils import *
 
 
@@ -17,7 +18,8 @@ def why_us(request):
 
 
 def goals_info(request):
-    return render(request, 'goal_setting/goals_info.html', context={'title': 'Информация о целях'})
+    return render(request, 'goal_setting/goals_info.html',
+                  context={'title': 'Sprout | Как ставить цели', 'g_info': g_info})
 
 
 class CreateGoals(DataMixin, CreateView):
