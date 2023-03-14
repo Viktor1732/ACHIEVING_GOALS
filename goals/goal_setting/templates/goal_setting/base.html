@@ -24,7 +24,6 @@
             </a>
             <div class="navbar-menu-wrap">
                 {% url 'goals_info' as goals_info %}
-                {% url 'points_info' as points_info %}
                 {% url 'leaders' as leaders %}
                 {% url 'goals' as goals %}
                 {% url 'archive' as archive %}
@@ -36,27 +35,13 @@
                 {% url 'condition_of_use' as condition_of_use %}
                 <ul class="menu-header-not-auth">
                     <li class="menu-header-item">
-                        <a class="menu-nav-link" href="#">База знаний</a>
-                        <ul class="sub-menu">
-                            <li class="menu-header-item">
-                                <a class="{% active request goals_info %}" href="{{ goals_info }}">Как ставить цели</a>
-                            </li>
-                            <li class="menu-header-item">
-                                <a class="{% active request points_info %}" href="{{ points_info }}">Мои баллы</a>
-                            </li>
-                            <li class="menu-header-item">
-                                <a class="{% active request leaders %}" href="{{ leaders }}">Таблица лидеров</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-header-item">
                         <a class="{% active request goals %}" href="{{ goals }}">Цели</a>
                     </li>
                     <li class="menu-header-item">
                         <a class="{% active request archive %}" href="{{ archive }}">Архив</a>
                     </li>
                     <li class="menu-header-item">
-                        <a class="{% active request public_goals %}" href="{{ public_goals }}">Публичные цели</a>
+                        <a class="{% active request public_goals %}" href="{{ public_goals }}">Все цели</a>
                     </li>
                     <li class="menu-header-item">
                         <a class="{% active request news %}" href="{{ news }}">Истории успеха</a>
@@ -65,7 +50,7 @@
                         <a class="menu-nav-link" href="#">Другое</a>
                         <ul class="sub-menu">
                             <li class="menu-header-item">
-                                <a class="{% active request about %}" href="{{ about }}">О нас</a>
+                                <a class="{% active request goals_info %}" href="{{ goals_info }}">Как ставить цели</a>
                             </li>
                             <li class="menu-header-item">
                                 <a class="{% active request contact %}" href="{{ contact }}">Обратная связь</a>
