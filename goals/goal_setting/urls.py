@@ -5,8 +5,6 @@ from goal_setting.views import *
 urlpatterns = [
     path('', index, name='home'),
     path('goals_how_it_work/', goals_info, name='goals_info'),
-    path('points_how_it_work/', points_info, name='points_info'),
-    path('leaders/', show_leaders, name='leaders'),
     path('goals/create_goal', CreateGoals.as_view(), name='create_goal'),
     path('goals/', GoalsMenu.as_view(), name='goals'),
     path('goals/show_goal/<goal_slug>/', ShowGoal.as_view(), name='goal'),
@@ -19,7 +17,6 @@ urlpatterns = [
     path('public_goals', PublicGoals.as_view(), name='public_goals'),
     path('news/', ListNews.as_view(), name='news'),
     path('news/<slug:news_slug>/', ShowNews.as_view(), name='news'),
-    path('about/', about_us, name='about'),
     path('privacy_policy/', privacy_policy, name='privacy_policy'),
     path('condition_of_use/', condition_of_use, name='condition_of_use'),
     path('contact/', contact, name='contact'),

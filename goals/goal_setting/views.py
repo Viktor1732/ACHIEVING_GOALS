@@ -166,14 +166,6 @@ class PublicGoals(DataMixin, ListView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
-def points_info(request):
-    return render(request, 'goal_setting/points_info.html', context={'title': 'Информация о баллах'})
-
-
-def show_leaders(request):
-    return render(request, 'goal_setting/leader_board.html', context={'title': 'Наши лидеры'})
-
-
 class ListNews(DataMixin, ListView):
     model = News
     template_name = 'goal_setting/news.html'
@@ -202,10 +194,6 @@ class ShowNews(DataMixin, DetailView):
 
     def get_queryset(self):
         return News.objects.filter(is_published=True)
-
-
-def about_us(request):
-    return render(request, 'goal_setting/about.html', context={'title': 'О нас'})
 
 
 def privacy_policy(request):
