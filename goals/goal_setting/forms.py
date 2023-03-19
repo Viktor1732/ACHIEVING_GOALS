@@ -102,3 +102,13 @@ class UpdateGoalForm(forms.ModelForm):
                                         'name': "goal-photo", 'accept': "image/png, image/jpg, image/jpeg",
                                         'required': "", 'id': "upload-file"}),
     }
+
+
+class FormSendMessage(forms.Form):
+    name = forms.CharField(
+        max_length=50, widget=forms.TextInput(attrs={'class': 'form-control', }))
+    email = forms.EmailField(
+        max_length=100, widget=forms.EmailInput(attrs={'class': 'form-control', }))
+    message = forms.CharField(
+        max_length=500,
+        widget=forms.Textarea(attrs={'class': 'form-textarea-control', 'name': 'goal-desc', 'id': 'id_goal_desc'}))

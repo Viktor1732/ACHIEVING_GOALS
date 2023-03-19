@@ -1,5 +1,43 @@
 {% extends 'goal_setting/base.html' %}
 
 {% block content %}
-<h1>Обратная связь</h1>
+<section class="goals">
+    <div class="container">
+        <div class="row-title">
+            <h1 class="goals-title">Обратная связь</h1>
+        </div>
+        <div class="row-content">
+            <div class="new-goal-card">
+                <div class="create-goal-card">
+                    <div class="create-goal-form">
+
+                        <!-- contact-form -->
+                        <form action="" method="post" class="create-goal-frm">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form-label">Имя пользователя:</label>
+                                {{ form.name }}
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email:</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="form-textarea">
+                                <label class="form-label">Описание цели:</label>
+                                {{ form.message }}
+                            </div>
+                            <div class="form-create-btn">
+                                <button type="submit" class="btn btn-blue">Отправить сообщение</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock content %}
+
+{% block join-banner %}
+{% endblock join-banner %}

@@ -1,10 +1,12 @@
 import datetime
 
+from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
-from .forms import CreateGoalsForm
+from .forms import CreateGoalsForm, FormSendMessage
 from .texts import g_info
 from .utils import *
 
@@ -204,5 +206,23 @@ def condition_of_use(request):
     return render(request, 'goal_setting/condition_of_use.html', context={'title': 'Условия пользования'})
 
 
-def contact(request):
-    return render(request, 'goal_setting/contact.html', context={'title': 'Обратная связь'})
+def send_message(request):
+    form = FormSendMessage()
+
+    if request.method == 'POST':
+        form = FormSendMessage(request.POST)
+        if form.is_valid:
+
+            name = request.POST['name']
+            email = request.POST['email']
+            message = request.POST['message']
+
+            data = f'Имя пользователя: {name}<br> Email: {email}<br> Сообщение: {message}'
+            msg = EmailMultiAlternatives(subject='SPROUT', to=['vk.ryzhenkov@gmail.com', ])
+            msg.attach_alternative(data, 'text/html')
+            msg.send()
+            return redirect('home')
+        else:
+            form = FormSendMessage()
+    return render(request, 'goal_setting/contact.html', context={'title': 'Sprout | Обратная связь', 'form': form})
+

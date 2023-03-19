@@ -19,5 +19,5 @@ urlpatterns = [
     path('news/<slug:news_slug>/', ShowNews.as_view(), name='news'),
     path('privacy_policy/', privacy_policy, name='privacy_policy'),
     path('condition_of_use/', condition_of_use, name='condition_of_use'),
-    path('contact/', contact, name='contact'),
+    path('contact/', send_message, name='contact'),
 ]
