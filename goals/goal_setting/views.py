@@ -2,11 +2,10 @@ import datetime
 
 from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import render, redirect
-from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
-from .forms import CreateGoalsForm, FormSendMessage
+from .forms import CreateGoalsForm, FormSendMessage, RegisterUserForm
 from .texts import g_info, prv_policy, user_agreement
 from .utils import *
 
@@ -227,4 +226,16 @@ def send_message(request):
         else:
             form = FormSendMessage()
     return render(request, 'goal_setting/contact.html', context={'title': 'Sprout | Обратная связь', 'form': form})
+
+
+class RegisterUser(DataMixin, CreateView):
+    form_class = RegisterUserForm
+    template_name = 'goal_setting/register.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Sprout | Регистрация пользователя'
+        c_def = self.get_user_context()
+        return dict(list(context.items()) + list(c_def.items()))
 

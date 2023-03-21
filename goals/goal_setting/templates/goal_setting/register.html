@@ -1,0 +1,63 @@
+{% extends 'goal_setting/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- register -->
+<section class="goals">
+    <div class="container">
+        <div class="row-title">
+            <h1 class="goals-title">Регистрация пользователя</h1>
+        </div>
+
+        <div class="row-content">
+            <div class="new-goal-card">
+                <div class="create-goal-card">
+                    <div class="create-goal-form">
+                        <form action="" method="post" class="create-goal-frm">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="form-label">Логин:</label>
+                                    {{ form.username }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email:</label>
+                                    {{ form.email }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="form-label">Имя:</label>
+                                    {{ form.first_name }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Фамилия:</label>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="form-label">Пароль:</label>
+                                    {{ form.password1 }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Повторите пароль:</label>
+                                    {{ form.password2 }}
+                                </div>
+                            </div>
+                            <div class="form-create-btn">
+                                <button type="submit" class="btn btn-blue">Регистрация</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% block join-banner %}
+{% endblock join-banner %}
+
+{% endblock content %}
