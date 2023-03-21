@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .forms import CreateGoalsForm, FormSendMessage
-from .texts import g_info, prv_policy
+from .texts import g_info, prv_policy, user_agreement
 from .utils import *
 
 
@@ -200,11 +200,12 @@ class ShowNews(DataMixin, DetailView):
 
 def privacy_policy(request):
     return render(request, 'goal_setting/privacy_policy.html',
-                  context={'title': 'Политика конфиденциальности', 'prv_policy': prv_policy})
+                  context={'title': 'Sprout | Политика конфиденциальности', 'prv_policy': prv_policy})
 
 
 def condition_of_use(request):
-    return render(request, 'goal_setting/condition_of_use.html', context={'title': 'Условия пользования'})
+    return render(request, 'goal_setting/condition_of_use.html',
+                  context={'title': 'Sprout | Условия пользования', 'user_agreement': user_agreement})
 
 
 def send_message(request):
