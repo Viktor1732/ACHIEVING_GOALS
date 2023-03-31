@@ -34,12 +34,14 @@
                 {% url 'privacy_policy' as privacy_policy %}
                 {% url 'condition_of_use' as condition_of_use %}
                 <ul class="menu-header-not-auth">
+                    {% if request.user.is_authenticated %}
                     <li class="menu-header-item">
                         <a class="{% active request goals %}" href="{{ goals }}">Цели</a>
                     </li>
                     <li class="menu-header-item">
                         <a class="{% active request archive %}" href="{{ archive }}">Архив</a>
                     </li>
+                    {% endif %}
                     <li class="menu-header-item">
                         <a class="{% active request public_goals %}" href="{{ public_goals }}">Все цели</a>
                     </li>
@@ -67,8 +69,8 @@
                     </li>
                 </ul>
                 {% if request.user.is_authenticated %}
-                    <p class="menu-nav-link login">{{ user.username }}  |  </p>
-                    <a href="logout" class="menu-nav-link login">Выйти</a>
+                    <p class="menu-nav-link login">{{ user.username }}  |
+                    <a href="{% url 'logout' %}" class="menu-nav-link login">Выйти</a></p>
                 {% else %}
                     <a href="{% url 'auth' %}" class="btn-blue btn">Вход</a>
                 {% endif %}

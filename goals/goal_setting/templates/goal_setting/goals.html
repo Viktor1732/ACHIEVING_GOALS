@@ -19,7 +19,9 @@
         </div>
 
         <div class="goal-list-wrap">
+            {% if period %}
             <!-- Краткосрочные -->
+            {% if period.less_90_days %}
             <div class="goal-list-card">
                 <div class="goal-list-header">
                     Краткосрочные цели (до 3 месяцев)
@@ -55,8 +57,10 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
 
             <!-- Краткосрочные 3-12 месяцев -->
+            {% if period.from_3_to_12_months %}
             <div class="goal-list-card">
                 <div class="goal-list-header">
                     Краткосрочные цели (от 3 до 12 месяцев)
@@ -92,8 +96,10 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
 
             <!-- Среднесрочные -->
+            {% if period.from_1_to_3_years %}
             <div class="goal-list-card">
                 <div class="goal-list-header">
                     Среднесрочные (от 1 до 3 лет)
@@ -129,8 +135,10 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
 
             <!-- Долгосрочные -->
+            {% if period.more_3_years %}
             <div class="goal-list-card">
                 <div class="goal-list-header">
                     Долгосрочные цели (от 3 лет)
@@ -166,7 +174,9 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
         </div>
+        {% endif %}
     </div>
 </section>
 
