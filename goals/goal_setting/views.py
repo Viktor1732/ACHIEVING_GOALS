@@ -1,11 +1,13 @@
 import datetime
 
+from django.contrib.auth import logout
+from django.contrib.auth.views import LoginView
 from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
-from .forms import CreateGoalsForm, FormSendMessage, RegisterUserForm
+from .forms import CreateGoalsForm, FormSendMessage, RegisterUserForm, LoginUserForm
 from .texts import g_info, prv_policy, user_agreement
 from .utils import *
 
@@ -239,3 +241,21 @@ class RegisterUser(DataMixin, CreateView):
         c_def = self.get_user_context()
         return dict(list(context.items()) + list(c_def.items()))
 
+
+class LoginUser(DataMixin, LoginView):
+    form_class = LoginUserForm
+    template_name = 'goal_setting/login.html'
+    success_url = 'home'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Sprout | Авторизация'
+        return dict(list(context.items()))
+
+    def get_success_url(self):
+        return reverse_lazy('home')
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('home')

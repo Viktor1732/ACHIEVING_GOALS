@@ -105,6 +105,11 @@ body {
     transition: width 0.5s;
 }
 
+.menu-nav-link.login {
+    color: #002162 !important;
+    font-weight: 900 !important;
+}
+
 .sub-menu {
     background: #f9f9f9;
     padding: 10px 15px 20px;

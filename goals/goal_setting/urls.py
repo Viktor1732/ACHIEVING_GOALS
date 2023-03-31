@@ -20,5 +20,7 @@ urlpatterns = [
     path('privacy_policy/', privacy_policy, name='privacy_policy'),
     path('condition_of_use/', condition_of_use, name='condition_of_use'),
     path('contact/', send_message, name='contact'),
-    path('registration/', RegisterUser.as_view(), name='register')
+    path('registration/', RegisterUser.as_view(), name='register'),
+    path('authentication/', LoginUser.as_view(), name='auth'),
+    path('logout/', logout_user, name='logout'),
 ]
